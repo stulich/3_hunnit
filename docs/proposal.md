@@ -6,7 +6,7 @@
 
 * Conor Carmichael, Conor-Carmichael
 * Stephen Ulich, stulich
-* Team Member Name 3, Github Username 3
+* Monmoy Mohsin, monmoymohsin
 * Team Member Name 4, Github Username 4
 * Team Member Name 5, Github Username 5
 
