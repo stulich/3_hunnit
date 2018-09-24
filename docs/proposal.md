@@ -7,7 +7,7 @@
 * Conor Carmichael, Conor-Carmichael
 * Stephen Ulich, stulich
 * Monmoy Mohsin, monmoymohsin
-* Team Member Name 4, Github Username 4
+* Harsha Malireddy, HarshaMalireddy
 * Team Member Name 5, Github Username 5
 
 # Innovative Idea
