@@ -1,10 +1,10 @@
-# TEAM NAME
+# c_3hunnit
 
-# WEB APPLICATION NAME
+# UMass Report
 
 # Team Overview
 
-* Team Member Name 1, Github Username 1
+* Conor Carmichael, Conor-Carmichael
 * Team Member Name 2, Github Username 2
 * Team Member Name 3, Github Username 3
 * Team Member Name 4, Github Username 4
@@ -12,11 +12,11 @@
 
 # Innovative Idea
 
-Please describe your team's innovative idea for your project.
+A website to bring the UMass community together, through general and class based discussions, and polls to get a sense of how the community as a whole feels about topics pertient to our campus.
 
 # Important Data
 
-Please describe the important data that your application will be managing.
+We will use students email addresses for authorization, as well as text information for discussions and statistics from polls.
 
 # User Interface
 
