@@ -1,3 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
    <head> 
+      <title> Survey Results </title>
+      <p> Q1 Results </p>
+      <!-- this is the graph representation on the survey question -->
+      
+      var data = [
+      {x: "A", value: 225},
+      {x: "B", value: 319},
+      {x: "C", value: 198},
+      {x: "D", value: 2702},
+  ];
+      
+      <div class="chart">
+         <div class="bar-1"></div>
+         <div class="bar-2"></div>
+         <div class="bar-3"></div>
+         <div class="bar-4"></div>
+      </div>
+      
+      <p> Q2 Results </p>
+      <!-- this is the free responce representation of the survey -->
+      
+      <div class="chart">
+         <div class="bar-1"></div>
+         <div class="bar-2"></div>
+         <div class="bar-3"></div>
+         <div class="bar-4"></div>
+      </div>
+      
+      <p> Q3 Results </p>
+      <!-- this is the piechart representation of the graph. Also you would have data that goes into the chart-->
+      
+      <script>
+         var chart = anychart.pie();
+         chart.title = "question x";
+         chart.data(data);
+         chart.containter('container');
+         chart.draw();
+      </script>
+      
+         
+      
+         
+                  
+               
