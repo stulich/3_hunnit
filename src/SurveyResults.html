@@ -1,47 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
    <head> 
       <title> Survey Results </title>
+      
       <p> Q1 Results </p>
       <!-- this is the graph representation on the survey question -->
-      
-      var data = [
-      {x: "A", value: 225},
-      {x: "B", value: 319},
-      {x: "C", value: 198},
-      {x: "D", value: 2702},
-  ];
-      
-      <div class="chart">
-         <div class="bar-1"></div>
-         <div class="bar-2"></div>
-         <div class="bar-3"></div>
-         <div class="bar-4"></div>
-      </div>
+      <script type="text/javascript">
+         window.onload = function() {
+            var columnchart = new CanvasJS.Chart("column",	{
+               animationEnabled: true,
+               title:{
+                  text: "Results"
+               },
+               data: [{
+                  dataPoints: [
+                     { x: 1, y: 297, label: "A"},
+                     { x: 2, y: 267,  label: "B"},
+                     { x: 3, y: 175,  label: "C"},
+                     { x: 4, y: 154,  label: "D"}
+                  ]
+               }]
+            });
+            columnchart.render();
+         }
+      </script>
       
       <p> Q2 Results </p>
       <!-- this is the free responce representation of the survey -->
       
-      <div class="chart">
-         <div class="bar-1"></div>
-         <div class="bar-2"></div>
-         <div class="bar-3"></div>
-         <div class="bar-4"></div>
-      </div>
       
+
       <p> Q3 Results </p>
       <!-- this is the piechart representation of the graph. Also you would have data that goes into the chart-->
       
-      <script>
-         var chart = anychart.pie();
-         chart.title = "question x";
-         chart.data(data);
-         chart.containter('container');
-         chart.draw();
+      <script type = "text/javascript">
+         window.onload = function() {
+            var piechart = new CanvasJS.Chart("piechart",{
+               title: {
+                  text: "Results"
+               },
+               legend: {
+                  maxWidth: 350,
+			         itemWidth: 120
+               },
+               data: [{
+                     type: "pie",
+			            showInLegend: true,
+			            legendText: "{indexLabel}",
+			            dataPoints: [
+                        { y: 418, indexLabel: "A" },
+				            { y: 217, indexLabel: "B" },
+               	      { y: 312, indexLabel: "C" },
+            				{ y: 117, indexLabel: "D"},
+                     ]
+                  }
+               ]
+            });
+            piechart.render();
+         }
       </script>
-      
-         
-      
-         
-                  
-               
+   </head>
+   <body>
+      <div id="column" style="height: 300px; width: 100%;"></div>
+      <div id="piechartContainer" style="height: 300px; width: 100%;"></div>
+   </body>
+</html>
