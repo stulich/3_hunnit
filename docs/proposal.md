@@ -25,4 +25,6 @@ Provide a description and images of the user interface your
 application will intend on supporting.
 
 ![example image](imgs/chick.jpg)
+![popular surveys](imgs/popular_surveys.png)
+The surveys that are currently new/popular will be displayed in one main feed. There users can interact with them, or potentially search for more, and then if desired create there own.
 
