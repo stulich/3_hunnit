@@ -25,9 +25,12 @@ Provide a description and images of the user interface your
 application will intend on supporting.
 
 ![topDiscussions](imgs/topDisuccsions.png)
+The discussions that are currently new/popular will be displayed in one main feed. There users can interact with them, or potentially search for more, and then if desired create there own post.
 ![popular surveys](imgs/popular_surveys.png)
 The surveys that are currently new/popular will be displayed in one main feed. There users can interact with them, or potentially search for more, and then if desired create there own.
-
 ![discussionForm](imgs/discussionForm.png)
+This form will allow users to post new discussions and tag different categories in the post. They will be able to enter in a title for the post and a description of what the discussion is about.
 ![surveyForm](imgs/surveyForm.png)
+This form will allow users to post new surveys and tag different categories. It will also allow the user to select what type of response they want back and it will allow the users to select how they want the results to be visualized.
 ![surveyResults](imgs/surveyResults.png)
+This is an example of how the results to different surveys will be returned. The platform will bbe albe to suport different types of graphs.
