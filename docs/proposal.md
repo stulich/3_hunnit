@@ -7,7 +7,7 @@
 * Conor Carmichael, Conor-Carmichael
 * Stephen Ulich, stulich
 * Monmoy Mohsin, monmoymohsin
-* Harsha Malireddy, HarshaMalireddy
+* Harsha Malireddy, HarshaMtopDiscussions.pngalireddy
 * Arjun Singh, arjunsingh1997
 * Kyle Ewell, KyleEwell1
 
@@ -24,7 +24,7 @@ Our application will support the following data types: discussions post data, su
 Provide a description and images of the user interface your
 application will intend on supporting.
 
-![topDiscussions](imgs/topDiscussions.png)
+![topDiscussions](imgs/topDisuccsions.png)
 ![popular surveys](imgs/popular_surveys.png)
 The surveys that are currently new/popular will be displayed in one main feed. There users can interact with them, or potentially search for more, and then if desired create there own.
 
