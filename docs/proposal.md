@@ -9,7 +9,7 @@
 * Monmoy Mohsin, monmoymohsin
 * Harsha Malireddy, HarshaMalireddy
 * Arjun Singh, arjunsingh1997
-* Team Member Name 5, Github Username 5
+* Kyle Ewell, KyleEwell1
 
 # Innovative Idea
 
