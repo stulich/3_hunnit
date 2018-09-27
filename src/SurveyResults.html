@@ -1,67 +1,91 @@
 <!DOCTYPE html>
-<html>
-   <head> 
-      <title> Survey Results </title>
-      
-      <p> Q1 Results </p>
-      <!-- this is the graph representation on the survey question -->
-      <script type="text/javascript">
-         window.onload = function() {
-            var columnchart = new CanvasJS.Chart("column",	{
-               animationEnabled: true,
-               title:{
-                  text: "Results"
-               },
-               data: [{
-                  dataPoints: [
-                     { x: 1, y: 297, label: "A"},
-                     { x: 2, y: 267,  label: "B"},
-                     { x: 3, y: 175,  label: "C"},
-                     { x: 4, y: 154,  label: "D"}
-                  ]
-               }]
-            });
-            columnchart.render();
-         }
-      </script>
-      
-      <p> Q2 Results </p>
-      <!-- this is the free responce representation of the survey -->
-      
-      
-
-      <p> Q3 Results </p>
-      <!-- this is the piechart representation of the graph. Also you would have data that goes into the chart-->
-      
-      <script type = "text/javascript">
-         window.onload = function() {
-            var piechart = new CanvasJS.Chart("piechart",{
-               title: {
-                  text: "Results"
-               },
-               legend: {
-                  maxWidth: 350,
-			         itemWidth: 120
-               },
-               data: [{
-                     type: "pie",
-			            showInLegend: true,
-			            legendText: "{indexLabel}",
-			            dataPoints: [
-                        { y: 418, indexLabel: "A" },
-				            { y: 217, indexLabel: "B" },
-               	      { y: 312, indexLabel: "C" },
-            				{ y: 117, indexLabel: "D"},
-                     ]
-                  }
-               ]
-            });
-            piechart.render();
-         }
-      </script>
+<html lang="en">
+   <head>
+      <title>Popular Discussion Page</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    </head>
    <body>
-      <div id="column" style="height: 300px; width: 100%;"></div>
-      <div id="piechartContainer" style="height: 300px; width: 100%;"></div>
-   </body>
-</html>
+      <nav class="navbar navbar-inverse" style="background-color: maroon;">
+         <div class="container-fluid">
+            <ul class="navbar-header" style="padding: 10px ">
+               <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+            </ul>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <a href="#" class="nav navbar-nav navbar-logo" style="position: absolute;
+                  padding: 5px;
+                  left: 50%;
+                  margin-left: -75px;
+                  display: block;" ><img src="../docs/imgs/umass_long_logo.png">
+               </a>
+               <ul class="nav navbar-nav navbar-right" style="padding: 10px">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="container-fluid text-center">
+         <div class="row content">
+            <div class="col-sm-8 text-left col-sm-offset-2">
+		    <title> Survey Results </title>
+		    <p> Q1 Results </p>
+      <!-- this is the graph representation on the survey question -->
+		    <script type="text/javascript">
+			    window.onload = function() {
+				    var columnchart = new CanvasJS.Chart("column",{
+					    animationEnabled: true,
+					    title:{
+						    text: "Results"
+					    },
+					    data: [{
+						    dataPoints: [
+							    { x: 1, y: 297, label: "A"},
+							    { x: 2, y: 267,  label: "B"},
+							    { x: 3, y: 175,  label: "C"},
+							    { x: 4, y: 154,  label: "D"}
+						    ]
+					    }]
+				    });
+				    columnchart.render();
+			    }
+		    </script>
+		    <p> Q2 Results </p>
+      <!-- this is the free responce representation of the survey -->
+		    
+		    <p> Q3 Results </p>
+      <!-- this is the piechart representation of the graph. Also you would have data that goes into the chart-->
+		    <script type = "text/javascript">
+			    window.onload = function() {
+				    var piechart = new CanvasJS.Chart("piechart",{
+					    title: {
+						    text: "Results"
+					    },
+					    legend: {
+						    maxWidth: 350,
+						    itemWidth: 120
+					    },
+					    data: [
+						    {
+							    type: "pie",
+							    showInLegend: true,
+							    legendText: "{indexLabel}",
+							    dataPoints: [
+								    {y: 418, indexLabel: "A" },
+								    { y: 217, indexLabel: "B" },
+								    { y: 312, indexLabel: "C" },
+								    { y: 117, indexLabel: "D"},
+							    ]
+						    }
+					    ]
+				    });
+				    piechart.render();
+			    }
+		    </script>
+		    </head>
+		 <body>
+			 <div id="column" style="height: 300px; width: 100%;"></div>
+			 <div id="piechartContainer" style="height: 300px; width: 100%;"></div>
+		 </body>
