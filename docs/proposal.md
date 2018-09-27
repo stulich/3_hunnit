@@ -24,7 +24,10 @@ Our application will support the following data types: discussions post data, su
 Provide a description and images of the user interface your
 application will intend on supporting.
 
-![example image](imgs/chick.jpg)
+![topDiscussions](imgs/topDiscussions.png)
 ![popular surveys](imgs/popular_surveys.png)
 The surveys that are currently new/popular will be displayed in one main feed. There users can interact with them, or potentially search for more, and then if desired create there own.
 
+![discussionForm](imgs/discussionForm.png)
+![surveyForm](imgs/surveyForm.png)
+![surveyResults](imgs/surveyResults.png)
