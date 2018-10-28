@@ -180,7 +180,6 @@ class UserAccount(models.Model):
         """String for representing the Model object."""
         return f"{self.user_name}"
 
-
 class DiscussionPost(models.Model):
     """Model representing a discussion post."""
 
@@ -214,3 +213,40 @@ class CommentSection(models.Model):
     post = models.ForeignKey('DiscussionPost', on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey('UserAccount',on_delete=models.SET_NULL, null=True)
     text = models.CharField(max_length=400)
+
+
+class SurveyPost(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        help_text="Unique ID for this post",
+    )
+
+    title = models.CharField(max_length=25)
+    survey_author = models.ForeignKey("UserAccount", on_delete=models.SET_NULL, null=True)
+    question = models.CharField(max_length=200)
+    options= models.ForeignKey("Choice", on_delete=models.SET_NULL, null=True)
+
+
+    class Meta:
+       ordering = ["title"]
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular discussion post"""
+        return reverse("title", args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f"{self.title}"
+    
+
+
+class Choice(models.Model):
+
+    survey_post = models.ForeignKey("SurveyPost",on_delete=models.SET_NULL, null=True)
+    option = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+
+  
+
+

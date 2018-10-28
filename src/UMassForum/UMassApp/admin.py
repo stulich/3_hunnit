@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from UMassApp.models import Author, Genre, Book, BookInstance, LibraryEvent, UserAccount, DiscussionPost, CommentSection
+from UMassApp.models import Author, Genre, Book, BookInstance, LibraryEvent, UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice
 
 admin.site.register(Genre)
 
@@ -123,6 +123,36 @@ class CommentSectionAdmin (admin.ModelAdmin):
     list_display = ("post", "text", "author")
     fields = ["post", "text", "author"]
 
+class DiscussionPostInline(admin.TabularInline):
+    model = DiscussionPost
+
+@admin.register(SurveyPost)
+class SurveyPostAdmin (admin.ModelAdmin):
+    # By setting the list_display variable in an Admin class will have
+    # it display only the fields in the model that are
+    # specified. Notice that we do not specify the genre field for
+    # this Admin class because it is a many-to-many field. This can be
+    # a costly operation when accessing the database. So, we have it
+    # display the results of a function call (display_genre) - see the
+    # defintion of this function in the Book class in models.py.
+    list_display = ("id", "title", "survey_author", "question")
+    fields = ["title", "survey_author", "question"]
+
+
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+
+@admin.register(Choice)
+class Choice (admin.ModelAdmin):
+    # By setting the list_display variable in an Admin class will have
+    # it display only the fields in the model that are
+    # specified. Notice that we do not specify the genre field for
+    # this Admin class because it is a many-to-many field. This can be
+    # a costly operation when accessing the database. So, we have it
+    # display the results of a function call (display_genre) - see the
+    # defintion of this function in the Book class in models.py.
+    list_display = ("survey_post", "option", "votes")
+    fields = ["survey_post", "option","votes"]
 
 
 
