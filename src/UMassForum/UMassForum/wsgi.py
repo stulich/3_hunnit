@@ -1,5 +1,5 @@
 """
-WSGI config for UMassForum project.
+WSGI config for locallibrary project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
