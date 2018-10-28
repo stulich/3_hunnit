@@ -9,19 +9,7 @@ from UMassApp.models import Author, Book, BookInstance, Genre, LibraryEvent
 
 fake = Faker()
 
-# Create Genres
-genres = [
-    Genre(name="Science Fiction"),
-    Genre(name="Satire"),
-    Genre(name="Drama"),
-    Genre(name="Adventure"),
-    Genre(name="Romance"),
-    Genre(name="Mystery"),
-]
 
-# Save the genres to the database
-for genre in genres:
-    genre.save()
 
 # Create Authors
 authors = []
