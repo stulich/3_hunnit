@@ -9,9 +9,10 @@ def test(request):
 def discussionPosts(request):
 	print("Being called")
 	num_posts= DiscussionPost.objects.all().count()
+	print(num_posts)
 	context = {"num_posts": num_posts,
 		}
-	return HttpResponse('DiscussionPost')
+	return HttpResponse(context)
 
 # Render the HTML template index.html with the data in the context variable
 	#return render(request, "events.html", context=context)
