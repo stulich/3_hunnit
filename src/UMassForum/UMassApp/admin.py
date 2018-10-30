@@ -13,7 +13,7 @@ class DiscussionPostInline(admin.TabularInline):
 @admin.register(DiscussionPost)
 class DiscussionPostAdmin (admin.ModelAdmin):
 
-    list_display = ("id", "title", "disc_author", "comment_section")
+    list_display = ("id", "title", "disc_author")
     fields = ["title", "disc_author", "content"]
 
 class CommentSectionInline(admin.TabularInline):

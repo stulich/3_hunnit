@@ -5,90 +5,83 @@ from datetime import timedelta
 from django.contrib.auth.models import User
 from faker import Faker
 
-from UMassApp.models import Author, Book, BookInstance, Genre, LibraryEvent
+from UMassApp.models import UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice
 
 fake = Faker()
 
 
 
 # Create Authors
-authors = []
+users = []
 for i in range(1, 10):
     a_fname = fake.first_name()
     a_lname = fake.last_name()
-    a_dob = fake.date_of_birth()
-    a_dod = a_dob + timedelta(days=365 * fake.random_int(65, 100))
-    author = Author(
-        first_name=a_fname, last_name=a_lname, date_of_birth=a_dob, date_of_death=a_dod
+    user = UserAccount(
+        first_name=a_fname, last_name=a_lname, user_name=a_fname
     )
-    author.save()
-    authors.append(author)
+    user.save()
+    users.append(user)
 
-LibraryEvents = []
-for i in range(1, 10):
-    lib_title = fake.text(30)
-    lib_dateTime = fake.date_time_this_month(before_now=False, after_now=True, tzinfo=None)
-    lib_location = fake.city()
-    lib_bookToDisucss = fake.text(50)
+# LibraryEvents = []
+# for i in range(1, 10):
+#     lib_title = fake.text(30)
+#     lib_dateTime = fake.date_time_this_month(before_now=False, after_now=True, tzinfo=None)
+#     lib_location = fake.city()
+#     lib_bookToDisucss = fake.text(50)
     
 
-    libraryEvent = LibraryEvent(
-        event_Title=lib_title, date_and_time=lib_dateTime, event_Location=lib_location, book_To_Discuss=lib_bookToDisucss
-    )
-    libraryEvent.save()
-    LibraryEvents.append(libraryEvent)
+#     libraryEvent = LibraryEvent(
+#         event_Title=lib_title, date_and_time=lib_dateTime, event_Location=lib_location, book_To_Discuss=lib_bookToDisucss
+#     )
+#     libraryEvent.save()
+#     LibraryEvents.append(libraryEvent)
 
 
 
 
 
 # Create Books
-books = []
-for i in range(1, 10):
+discussionPosts = []
+for i in range(1, 20):
     a_title = fake.text(50)
-    a_author = authors[fake.random_int(0, len(authors)) - 1]
-    a_summary = fake.text(1000)
-    a_isbn = fake.isbn13()
-    book = Book(title=a_title, author=a_author, summary=a_summary, isbn=a_isbn)
-    book.save()
-    book.genre.add(genres[fake.random_int(0, len(genres)) - 1])
-    book.save()
-    books.append(book)
+    a_author = users[fake.random_int(0, len(users)) - 1]
+    a_content = fake.text(500)
+    post = DiscussionPost(title=a_title, disc_author=a_author, content=a_content)
+    post.save()
+    #post.genre.add(genres[fake.random_int(0, len(genres)) - 1])
+    #post.save()
+    discussionPosts.append(post)
 
-instances = []
-for i in range(1, 400):
-    a_book = books[fake.random_int(0, len(books)) - 1]
-    a_imprint = fake.text(200)
-    a_status = "a"
-    instance = BookInstance(book=a_book, imprint=a_imprint, status=a_status)
-    instance.save()
-    instances.append(instance)
+comments = []
+for i in range(1, 40):
+    a_post = discussionPosts[fake.random_int(0, len(discussionPosts)) - 1]
+    a_author = users[fake.random_int(0, len(users)) - 1]
+    a_text = fake.text(200)
+    comment= CommentSection(post=a_post, author=a_author, text=a_text)
+    comment.save()
+    comments.append(comment)
 
-print("Genre:")
-for g in Genre.objects.all():
-    print(g)
+# Create Books
+surveyPosts = []
+for i in range(1, 20):
+    a_title = fake.text(50)
+    a_author = users[fake.random_int(0, len(users)) - 1]
+    a_content = fake.text(200)
+    post = SurveyPost(title=a_title, survey_author=a_author, question=a_content)
+    post.save()
+    #post.genre.add(genres[fake.random_int(0, len(genres)) - 1])
+    #post.save()
+    surveyPosts.append(post)
 
-print("\nAuthor:")
-for a in Author.objects.all():
-    print(a)
+options = []
+for i in range(1, 100):
+    a_post = surveyPosts[fake.random_int(0, len(discussionPosts)) - 1]
+    a_option = fake.text(10)
+    a_votes = fake.random_int(0,40)
+    choice= Choice(survey_post=a_post, option=a_option, votes=a_votes)
+    choice.save()
+    options.append(choice)
 
-print("\nBook:")
-for b in Book.objects.all():
-    print(b)
-
-print("\nBookInstance:")
-for i in BookInstance.objects.all():
-    print(i)
-
-# Retrieve a random book from model and print it.
-books_count = Book.objects.count()
-book = Book.objects.all()[fake.random_int(0, books_count - 1)]
-
-print("\nExample Book:")
-print(f"Title: {book.title}")
-print(f"Author: {book.author}")
-print(f"ISBN: {book.isbn}")
-print(f"Summary:\n{textwrap.fill(book.summary, 77)}")
 
 
 username = "admin"
