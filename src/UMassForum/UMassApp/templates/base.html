@@ -9,19 +9,42 @@
     crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
   {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
+
+  <nav class="navbar navbar-inverse" style="background-color: maroon;">
+      <div class="container-fluid">
+          <ul class="navbar-header" style="padding: 10px ">
+            <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+          </ul>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <a href="#" class="nav navbar-nav navbar-logo" style="position: absolute;
+                padding: 5px;
+                left: 50%;
+                margin-left: -75px;
+                display: block;" ><img src="../docs/imgs/umass_long_logo.png">
+            </a>
+            <ul class="nav navbar-nav navbar-right" style="padding: 10px">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </ul>
+          </div>
+      </div>
+  </nav>              
+
+  
+
+
+  <!-- OLD v -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">
         {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">All books</a></li>
-          <li><a href="">All authors</a></li>
-        </ul>
+
         {% endblock %}
       </div>
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>

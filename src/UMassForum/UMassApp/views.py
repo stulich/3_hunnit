@@ -5,13 +5,13 @@ from django.urls import reverse
 from django.views import generic
 
 # Create your views here.
-def test(request):
-	return HttpResponse('Hello, World')
+def index(request):
+	return render(request, 'base.html', context = None)
+	# return HttpResponse('Hello')
 
 def discussionPosts(request):
-	print("Being called")
 	num_posts= DiscussionPost.objects.all().count()
-	print(num_posts)
+	
 	context = {"num_posts": num_posts,
 		}
 	return HttpResponse(context)
