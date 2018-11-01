@@ -70,12 +70,7 @@ class CommentSection(models.Model):
 
 
 class SurveyPost(models.Model):
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        help_text="Unique ID for this post",
-    )
-
+    id = models.AutoField
     title = models.CharField(max_length=25)
     survey_author = models.ForeignKey("UserAccount", on_delete=models.SET_NULL, null=True)
     question = models.CharField(max_length=200)
@@ -96,8 +91,8 @@ class SurveyPost(models.Model):
 
 
 class Choice(models.Model):
-
-    survey_post = models.ForeignKey("SurveyPost",on_delete=models.SET_NULL, null=True)
+    id = models.AutoField
+    survey_post = models.ForeignKey(SurveyPost, on_delete=models.SET_NULL, null=True)
     option = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 

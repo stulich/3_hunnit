@@ -28,15 +28,18 @@ class CommentSectionAdmin (admin.ModelAdmin):
 class DiscussionPostInline(admin.TabularInline):
     model = DiscussionPost
 
-@admin.register(SurveyPost)
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 4
+
 class SurveyPostAdmin (admin.ModelAdmin):
 
     list_display = ("id", "title", "survey_author", "question")
     fields = ["title", "survey_author", "question"]
+    inlines = [ChoiceInline]
 
 
-class ChoiceInline(admin.TabularInline):
-    model = Choice
+admin.site.register(SurveyPost, SurveyPostAdmin)
 
 @admin.register(Choice)
 class Choice (admin.ModelAdmin):

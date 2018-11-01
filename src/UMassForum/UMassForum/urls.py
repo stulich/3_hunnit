@@ -36,5 +36,6 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns+=[path('discussionPosts/', include('UMassApp.urls'))]
 
+urlpatterns+=[path('surveyPosts/', include('UMassApp.urls'))]
 
-
+urlpatterns+=[path('surveyPosts/<int:post.id>', include('UMassApp.urls'))]
