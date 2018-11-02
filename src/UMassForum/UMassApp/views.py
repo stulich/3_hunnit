@@ -1,42 +1,32 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from UMassApp.models import DiscussionPost, SurveyPost
+from UMassApp.models import DiscussionPost, SurveyPost, UserAccount
 from django.urls import reverse
 from django.views import generic
 
 # Create your views here.
 def index(request):
-	return render(request, 'base.html', context = None)
-	# return HttpResponse('Hello')
+	"""View function for home page of site."""
+	# Generate counts of some of the main objects
+	num_discposts = DiscussionPost.objects.all().count()
+	num_surveyposts = SurveyPost.objects.all().count()
 
-def discussionPosts(request):
-	num_posts= DiscussionPost.objects.all().count()
-	
-	context = {"num_posts": num_posts,
-		}
-	return HttpResponse(context)
+	print(num_surveyposts)
+	# The 'all()' is implied by default.
+	num_users = UserAccount.objects.count()
+
+	context = {
+	    "num_discposts": num_discposts,
+	    "num_surveyposts": num_surveyposts,
+	    "num_users": num_users,
+	}
+
+	# Render the HTML template index.html with the data in the context variable
+	return render(request, "index.html", context=context)
+
 
 class SurveyPostsView(generic.ListView):
-	template_name = 'UMassApp/surveypost.html'
-	context_object_name = 'postlist'
+    model = SurveyPost
 
-	def get_queryset(self):
-		return SurveyPost.objects.all()
+    template_name = "surveypost.html"
 
-class SPDetailsView(generic.DetailView):
-	model = SurveyPost
-	template_name = 'UMassApp/spdetails.html'
-
-def vote(request, surveypost_id):
-	post = get_object_or_404(SurveyPost, pk=surveypost_id)
-	selected_choice = option.get(pk=request.POST['option'])
-	selected_choice.votes += 1
-	selected_choice.save()
-	return HttpResponseRedirect(reverse('results', args=(post.id,)))
-
-class ResultsView(generic.DetailView):
-	model = SurveyPost
-	template_name = 'UMassApp/results.html'
-
-# Render the HTML template index.html with the data in the context variable
-	#return render(request, "events.html", context=context)
