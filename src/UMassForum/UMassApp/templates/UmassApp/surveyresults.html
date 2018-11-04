@@ -3,19 +3,23 @@
 {% block content %}
     {% if all_surveyposts %} 
         <h1 align = "center">Survey Results</h1>
-        <u1>  
-            {% for post in all_surveyposts %} 
-                <!-- <h4 align = "left">{{post.id}}</h4> -->
-                <li>{{post.question}}</li><br>
-                <!-- {% for op in post.option.objects.all %}
-                    <li>{{ op.option }}</li>
-                {% endfor %}     -->
-                <!-- {% for option in choice.option.all %}
-                    <label for="option{{ forloop.counter }}">{{ option.option }}</label><br>
-                {% endfor %} -->
-            {% endfor %}  
-        </u1>    
-    {% else %}                                                                                    
+
+        {% for post in all_surveyposts %} 
+            {{post.question}}
+
+            {% for choice in all_choices %} 
+
+                {% if (choice.survey_post).id.equals(post.id) %}
+                    <label>{{choice.option}}</label>  
+             
+            {% endfor %} 
+            <!-- {% for option in choice.option.all %}
+                <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}">
+                <label for="option{{ forloop.counter }}">{{ option.option }}</label><br>
+            {% endfor %} -->  
+        {% endfor %}        
+          
+    {% else %}                                                                                      
         <h4>There are no survey posts</h4>
     {% endif %}    
-{% endblock %}                                     
+{% endblock %}                                          
