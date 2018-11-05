@@ -48,6 +48,13 @@ def surveyResults(request): #surveyResults(request,surveypost_id):
 	# return HttpResponse("<h4>test: " + str(surveypost_id) + "</h4>")
 	return render(request, 'UmassApp/surveyresults.html', context) 
 
+def discussionPosts(request):
+	dposts = DiscussionPost.objects.all()
+
+	context = {
+		'dposts': dposts
+	}
+	return render(request, "discussionposts.html", context=context)
 # def getLinkedOptions(post):
 # 	choices = Choice.objects.all()
 # 	ret_vals = []

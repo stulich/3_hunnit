@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Discussion Posts</h1>
+
+<ul>
+	{% for discussion in dposts %}
+	<ul>
+		<li class="discussionpost">
+			<a href="">{{ discussion.title }}</a> <br>
+			- {{discussion.disc_author}}
+			
+		</li>
+	</ul>
+	{%endfor %}
+</ul>
+
+{% endblock %}
