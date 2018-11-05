@@ -11,7 +11,6 @@ def index(request):
 	num_discposts = DiscussionPost.objects.all().count()
 	num_surveyposts = SurveyPost.objects.all().count()
 
-	print(num_surveyposts)
 	# The 'all()' is implied by default.
 	num_users = UserAccount.objects.count()
 
@@ -23,6 +22,14 @@ def index(request):
 
 	# Render the HTML template index.html with the data in the context variable
 	return render(request, "index.html", context=context)
+
+def surveyPosts(request):
+	posts = SurveyPost.objects.all()
+
+	context = {
+		'posts' : posts
+	}
+	return render(request, "surveypost.html", context=context)
 
 
 class SurveyPostsView(generic.ListView):
