@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if all_surveyposts %} 
+        <h1 align = "center">Survey Results</h1>
+        <ul>
+            
+            {% for post in all_surveyposts %} 
+                <li class="" id="{{post.options}}">
+                    Survey from {{post.survey_author}}
+                    <br>{{post.question}}
+                </li>
+                <form>
+                    <input type="radio"> Agree<strong>75%</strong>  <br>
+                    <input type="radio"> Strong agree  <strong>75%</strong>%<br>
+                    <input type="radio"> Strong disagree <strong>75%</strong><br>
+                </form>
+                {% for choice in  post.options %}
+                    <h1>{{choice}}</h1>
+
+                {% endfor %} 
+                <!-- {% for option in choice.option.all %}
+                    <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}">
+                    <label for="option{{ forloop.counter }}">{{ option.option }}</label><br>
+                    {% endfor %} -->  
+                    {% endfor %}        
+        </ul>
+          
+    {% else %}                                                                                      
+        <h4>There are no survey posts</h4>
+    {% endif %}    
+{% endblock %}                                          

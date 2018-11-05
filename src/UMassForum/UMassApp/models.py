@@ -78,7 +78,11 @@ class SurveyPost(models.Model):
     title = models.CharField(max_length=25)
     survey_author = models.ForeignKey("UserAccount", on_delete=models.SET_NULL, null=True)
     question = models.CharField(max_length=200)
-    options= models.ForeignKey("Choice", on_delete=models.SET_NULL, null=True)
+    # options =  models.ListTextField(
+    #     base_field=IntegerField(),
+    #     size=100,  # Maximum 
+    # )
+    options = models.ForeignKey("Choice", on_delete=models.SET_NULL, null=True)
 
 
     class Meta:

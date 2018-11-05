@@ -3,15 +3,16 @@
 {% block content %}
 <h1>Survey Posts List</h1>
 
-<!-- {% if posts %} -->
 <ul>
   {% for survey in posts %}
-  <li class="surveypost">
-    <a href="">{{ survey.title }}</a> ({{survey.survey_author}})
-  </li>
+  <ul>
+    <li class="surveypost">
+      <a href="">{{ survey.title }}</a> ({{survey.survey_author}})
+      <h1>{{survey.options}}</h1>
+    </li>
+
+  </ul>
   {% endfor %}
 </ul>
-<!-- {% else %} -->
-<!-- <p>There are no survey posts.</p> -->
-<!-- {% endif %}        -->
+
 {% endblock %}

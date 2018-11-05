@@ -13,26 +13,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- {% load static %} -->
-  <link rel="stylesheet" href="..UMassApp/static/css/styles.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
 
   <nav class="navbar navbar-inverse" style="background-color: maroon;">
       <div class="container-fluid">
-          <ul class="navbar-header" style="padding: 10px ">
-            <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
-          </ul>
+
           <div class="collapse navbar-collapse" id="myNavbar">
-            <a href="#" class="nav navbar-nav navbar-logo" style="position: absolute;
+            <a href="#" class="nav navbar-nav navbar-logo" style="
                 padding: 5px;
                 left: 50%;
-                margin-left: -75px;
-                display: block;" ><img src="..imgs/umass_long_logo.png">
+                " ><img src="{% static 'images/umasslogo.png' %}" style="height:25%;width:25%;">
             </a>
             <ul class="nav navbar-nav navbar-right" style="padding: 10px">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="padding: 10px ">
+              <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
             </ul>
           </div>
       </div>
@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-sm-2">
         {% block sidebar %}
-
+          <h1>Placeholder for sidenav</h1>
         {% endblock %}
       </div>
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
