@@ -66,10 +66,23 @@ def discussionPosts(request):
 # 			ret_vals.append(i)
 # 	return ret_vals
   
-class SurveyPostsView(generic.ListView): 
+class SurveyPostsView(generic.DetailView): 
 	model = SurveyPost
- 
-	template_name = "surveypost.html"
+	template_name = "surveydetails.html"
+
+	# def book_detail_view(request, primary_key):
+	# 	print(primary_key)
+	# 	try:
+	# 		post = SurveyPost.objects.get(id=primary_key)
+	# 	except SurveyPost.DoesNotExist:
+	# 		raise Http404('Post does not exist')
+		
+	# 	return render(request, 'surveydetails.html', context={'post': post})
+	def get_context_data(self, **kwargs):
+		context = super(SurveyPostsView, self).get_context_data(**kwargs)
+		context['choices'] = Choice.objects.all()
+		# And so on for more models
+		return context
 
 
 class surveyResults(generic.ListView):
@@ -81,7 +94,6 @@ class surveyResults(generic.ListView):
 		context = super(surveyResults, self).get_context_data(**kwargs)
 		context['surveyPosts'] = SurveyPost.objects.all()
 		context['choices'] = Choice.objects.all()
-
 		# And so on for more models
 		return context
 

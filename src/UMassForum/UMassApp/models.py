@@ -90,7 +90,7 @@ class SurveyPost(models.Model):
 
     def get_absolute_url(self):
         """Returns the url to access a particular discussion post"""
-        return reverse("title", args=[str(self.id)])
+        return reverse("survey-post-detail", args=[str(self.id)])
 
     def __str__(self):
         """String for representing the Model object."""
