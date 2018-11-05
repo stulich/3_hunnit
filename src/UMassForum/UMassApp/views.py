@@ -28,6 +28,9 @@ def createsurvey(request):
 	context = {'num_surveyposts': num_surveyposts}
 	return render(request, 'UmassApp/createsurvey.html', context)
 
+def createDiscussion(request):
+	return render(request, "discussionCreation.html")
+
 def surveyPosts(request):
 	posts = SurveyPost.objects.all()
 
