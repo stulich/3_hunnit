@@ -15,9 +15,9 @@ def index(request):
 	num_users = UserAccount.objects.count() 
 
 	context = { 
-	    "num_discposts": num_discposts,
-	    "num_surveyposts": num_surveyposts, 
-	    "num_users": num_users, 
+		"num_discposts": num_discposts,
+		"num_surveyposts": num_surveyposts, 
+		"num_users": num_users, 
 	}  
 
 	# Render the HTML template index.html with the data in the context variable
@@ -37,16 +37,16 @@ def surveyPosts(request):
 	return render(request, "surveypost.html", context=context)
 
 
-# class SurveyPostsView(generic.ListView):
-def surveyResults(request): #surveyResults(request,surveypost_id):
-	all_surveyposts = SurveyPost.objects.all()
+# # class SurveyPostsView(generic.ListView):
+# def surveyResults(request): #surveyResults(request,surveypost_id):
+# 	all_surveyposts = SurveyPost.objects.all()
 
-	context = {
-		'all_surveyposts': all_surveyposts, 
-		# "surveypost_id": surveypost_id,  
-	}   
-	# return HttpResponse("<h4>test: " + str(surveypost_id) + "</h4>")
-	return render(request, 'UmassApp/surveyresults.html', context) 
+# 	context = {
+# 		'all_surveyposts': all_surveyposts, 
+# 		# "surveypost_id": surveypost_id,  
+# 	}   
+# 	# return HttpResponse("<h4>test: " + str(surveypost_id) + "</h4>")
+# 	return render(request, 'UmassApp/surveyresults.html', context) 
 
 def discussionPosts(request):
 	dposts = DiscussionPost.objects.all()
@@ -64,6 +64,24 @@ def discussionPosts(request):
 # 	return ret_vals
   
 class SurveyPostsView(generic.ListView): 
-    model = SurveyPost
+	model = SurveyPost
  
-    template_name = "surveypost.html"
+	template_name = "surveypost.html"
+
+
+class surveyResults(generic.ListView):
+	context_object_name = 'survey_list'    
+	template_name = 'UMassApp/surveyresults.html'
+	queryset = UserAccount.objects.all()
+
+	def get_context_data(self, **kwargs):
+		context = super(surveyResults, self).get_context_data(**kwargs)
+		context['surveyPosts'] = SurveyPost.objects.all()
+		context['choices'] = Choice.objects.all()
+
+		# And so on for more models
+		return context
+
+
+
+

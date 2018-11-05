@@ -1,25 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if all_surveyposts %} 
+    {% if surveyPosts %} 
         <h1 align = "center">Survey Results</h1>
         <ul>
             
-            {% for post in all_surveyposts %} 
+            {% for post in surveyPosts %} 
                 <li class="" id="{{post.options}}">
                     Survey from {{post.survey_author}}
                     <br>{{post.question}}
                 </li>
-                <form>
+<!--                 <form>
                     <input type="radio"> Strongly Agree  <strong>20%</strong><br>
                     <input type="radio"> Agree <strong>20%</strong>  <br>
                     <input type="radio"> Neutral  <strong>20%</strong><br>
                     <input type="radio"> Disgree  <strong>20%</strong><br>
                     <input type="radio"> Strongly Disagree <strong>20%</strong><br>
-                </form>
-                {% for choice in  post.options %}
-                    <h1>{{choice}}</h1>
-
+                </form> -->
+                {% for choice in  post.choices.all %}
+                    <li>{{choice.option}}, ( {{choice.votes}} Votes) </li>
+                      
                 {% endfor %} 
                 <!-- {% for option in choice.option.all %}
                     <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}">

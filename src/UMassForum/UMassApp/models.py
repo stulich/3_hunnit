@@ -103,7 +103,7 @@ class SurveyPost(models.Model):
 
 class Choice(models.Model):
 
-    survey_post = models.ForeignKey("SurveyPost",on_delete=models.SET_NULL, null=True)
+    survey_post = models.ForeignKey("SurveyPost",related_name="choices",on_delete=models.SET_NULL, null=True)
     option = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
