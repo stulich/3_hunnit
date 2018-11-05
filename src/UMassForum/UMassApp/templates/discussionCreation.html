@@ -1,0 +1,23 @@
+<style>
+.enlarge{
+	min-height:200px;
+	min-width:100%;
+}
+</style>
+{% extends "base.html" %}
+
+{% block content %}
+<h1><strong>Discussion Creation</strong></h1>
+
+<!-- <form> -->
+    Title:
+    <input type = "text"><br><br>
+
+    Author:  
+    <input type = "text"><br><br>
+
+    Synopsis of thoughts: 
+    <input type = "text" class="enlarge"><br><br>
+    <a href= "/UMassApp/surveyposts/"><button type = "button">Post</button></a>     
+<!-- </form>   -->        
+{% endblock %}
