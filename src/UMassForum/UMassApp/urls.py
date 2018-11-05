@@ -8,7 +8,7 @@ urlpatterns = [
     # path('surveyresults/', views.surveyResults, name="surveyresults"),
     path("discussionposts/", views.discussionPosts, name="discussionPosts"),
     path("surveyresults/", views.surveyResults.as_view(),name="survey_results"),
+    path("discussioncreation/", views.createDiscussion, name="discussioncreation"),
 
- 
 ]
       
