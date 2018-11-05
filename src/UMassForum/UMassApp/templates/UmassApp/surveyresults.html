@@ -10,21 +10,13 @@
                     Survey from {{post.survey_author}}
                     <br>{{post.question}}
                 </li>
-<!--                 <form>
-                    <input type="radio"> Strongly Agree  <strong>20%</strong><br>
-                    <input type="radio"> Agree <strong>20%</strong>  <br>
-                    <input type="radio"> Neutral  <strong>20%</strong><br>
-                    <input type="radio"> Disgree  <strong>20%</strong><br>
-                    <input type="radio"> Strongly Disagree <strong>20%</strong><br>
-                </form> -->
+
+                 <a href="{{ post.get_absolute_url }}">See Results</a>
+
                 {% for choice in  post.choices.all %}
                     <li>{{choice.option}}, ( {{choice.votes}} Votes) </li>
                       
                 {% endfor %} 
-                <!-- {% for option in choice.option.all %}
-                    <input type="radio" name="option" id="option{{ forloop.counter }}" value="{{ option.id }}">
-                    <label for="option{{ forloop.counter }}">{{ option.option }}</label><br>
-                    {% endfor %} -->  
                     {% endfor %}        
         </ul>
           
