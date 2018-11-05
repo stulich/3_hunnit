@@ -11,9 +11,11 @@
                     <br>{{post.question}}
                 </li>
                 <form>
-                    <input type="radio"> Agree<strong>75%</strong>  <br>
-                    <input type="radio"> Strong agree  <strong>75%</strong>%<br>
-                    <input type="radio"> Strong disagree <strong>75%</strong><br>
+                    <input type="radio"> Strongly Agree  <strong>20%</strong><br>
+                    <input type="radio"> Agree <strong>20%</strong>  <br>
+                    <input type="radio"> Neutral  <strong>20%</strong><br>
+                    <input type="radio"> Disgree  <strong>20%</strong><br>
+                    <input type="radio"> Strongly Disagree <strong>20%</strong><br>
                 </form>
                 {% for choice in  post.options %}
                     <h1>{{choice}}</h1>
