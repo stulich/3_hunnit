@@ -12,7 +12,7 @@
 			<p>
 				{{ discussion.content }}
 			</p>
-			<a href=https://www.youtube.com/watch?v=8pU7d_XzQa4>Go to Post Discussion!</a>
+			<a href="{{ discussion.get_absolute_url }}">Go to Post Discussion!</a>
 		</li>
 	{% endfor %}
 </ul>
