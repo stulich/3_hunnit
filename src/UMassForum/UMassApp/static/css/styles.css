@@ -20,5 +20,10 @@
     background-color: rgba(255, 255, 255, 0.89);
     padding: 12px;
     margin: 8px;
+}
 
+.navItems{
+    font-style: none;
+    color:white;
+    font-size: 24px;
 }

@@ -19,6 +19,51 @@
 
 <body>
 
+  <nav class="navbar navbar-expand-lg" style="background-color: maroon; height:100px">
+    <a class="navbar-brand" href="/">
+      <img src="{% static 'images/umasslogo.png' %}" style="margin-top:-30px;" width="200" height="75" alt="">
+    </a>
+    <!-- <a href="/" class="nav navbar-nav navbar-logo" style="
+      padding: 5px;
+      left: 50%;">
+      <img src="{% static 'images/umasslogo.png' %}" style="height:25%;width:25%;">
+    </a> -->
+    <ul class="navbar-nav mr-auto">
+      <!-- Survey Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navItems" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Suveys
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item navItems" href="/UMassApp/surveyposts/" style="color: black !important ">Surveys</a>
+          <a class="dropdown-item navItems" href="/UMassApp/createsurvey/" style="color: black !important ">Create a Survey</a>
+        </div>       
+      </li>
+      <!-- Discussions Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navItems" href="#" id="discussionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Discussions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="discussionDropdown">
+          <a class="dropdown-item navItems" href="/UMassApp/discussionposts/" style="color: black !important ">Discussion Posts</a>
+          <a class="dropdown-item navItems" href="/UMassApp/discussioncreation/" style="color: black !important ">Create a Discussion Post</a>
+        </div>       
+      </li>
+    </ul>
+    <ul class="navbar-nav" style="float:right; margin-right:2%">
+      <!-- Utilities -->
+      <li class="nav-item navItems">Log In
+        <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+      </li>
+      <li class="nav-item">
+        <input class="form-control" style="margin-left:2em;" type="text" placeholder="Search" aria-label="Search">
+      </li>
+    </ul>
+  </nav>
+
+
+
+<!-- 
   <nav class="navbar navbar-inverse" style="background-color: maroon;">
       <div class="container-fluid">
 
@@ -47,7 +92,7 @@
             </ul>
           </div>
       </div>
-  </nav>              
+  </nav>               -->
 
   
 
@@ -55,11 +100,11 @@
   <!-- OLD v -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-2">
+      <!-- <div class="col-sm-2">
         {% block sidebar %}
           <h1>Placeholder for sidenav</h1>
         {% endblock %}
-      </div>
+      </div> -->
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
     </div>
   </div>
