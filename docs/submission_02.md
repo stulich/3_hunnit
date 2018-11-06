@@ -31,5 +31,6 @@ In our views file, we have classes and functions that serve specific urls. We ha
 We didn’t have problems in collaboration. We worked through any difficulties in coding the site by talking with one another. One issue we ran into, was trying to link specific survey options to their respective survey post. We were able to resolve the issue, by having a few of the team members approach the issue. One of our group members was able to figure out how to solve this issue by adding the parameter “related name = “choices”” in the survey_post foreign key element of the “Choice” model in the models.py file. By doing this we were able to add the inner for loop line and its display statement: {% for choice in  post.choices.all %} {{choice.option}}<br>. Another issue, we encountered, was trying to create a specific page, for the detailed view of surveys/discussions. We were able to solve that by implementing a regular expression based url mapping, which uses the id’s of the post to make unique urls. To improve collaboration for the next project we will make sure to start our discussions earlier in the working period for project 3 so that we are less stressed about getting things done before the deadline. 
 
 
-
+# Youtube video
+https://www.youtube.com/watch?v=yjFtHXPX5tQ&feature=youtu.be
 
