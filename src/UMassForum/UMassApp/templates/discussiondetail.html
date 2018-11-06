@@ -5,4 +5,9 @@
 <strong>Post by {{ object.disc_author }}</strong> <br><br>
 <p>{{ object.content }}</p>
 
+<br><br>
+{% for comment in  object.comments.all %}
+<p>{{comment.author}}<br> {{comment.text}}</p>
+{% endfor %}
+
 {% endblock %}
