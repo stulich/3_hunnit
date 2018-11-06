@@ -19,9 +19,8 @@ A design overview of your data model as implemented in Django, the important URL
 Models.py: 
 
 We have 5 models in our models.py file: UserAccount, DiscussionPost, CommentSection, SurveyPost, and Choice. 
-The UserAccount model contains the first, last, and user_name elements with which each user will be identified by. 
-The DiscussonPost model contains the elements title, disc_author, content
- and comment 
+The UserAccount model identifies different users, the DiscussionPost and SurveyPost models contains elements related to a discussion post and survey post respectively. The comment section model is associated with the survey 
+and comment 
 
 Urls.py: 
 
