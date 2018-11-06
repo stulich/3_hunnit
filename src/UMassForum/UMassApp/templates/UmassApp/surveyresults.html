@@ -1,26 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if surveyPosts %} 
-        <h1 align = "center">Survey Results</h1>
-        <ul>
-            
-            {% for post in surveyPosts %} 
-                <li class="" id="{{post.options}}">
-                    Survey from {{post.survey_author}}
-                    <br>{{post.question}}
-                </li>
+    {% if surveyPosts %}
+        <h1 align = "center">Survey Posts</h1>
+        <ul class = "surveyPostList">
 
-                 <a href="{{ post.get_absolute_url }}">See Results</a>
+            {% for post in surveyPosts %}
+                <li class="surveyPost" id="{{post.options}}">
+                  {{post.question}}
+                  <br><i>Posted by:</i>{{post.survey_author}}<br>
 
-                {% for choice in  post.choices.all %}
-                    <li>{{choice.option}}, ( {{choice.votes}} Votes) </li>
-                      
-                {% endfor %} 
-                    {% endfor %}        
+                  <br><strong>Answer Options</strong><br>
+
+                  {% for choice in  post.choices.all %}
+                   • {{choice.option}}<br>
+
+                  {% endfor %}
+
+                  <a href="{{ post.get_absolute_url }}">See Results</a>
+
+             {% endfor %}
         </ul>
-          
-    {% else %}                                                                                      
+    {% else %}                                                                                \
+
         <h4>There are no survey posts</h4>
-    {% endif %}    
-{% endblock %}                                          
+    {% endif %}
+{% endblock %}

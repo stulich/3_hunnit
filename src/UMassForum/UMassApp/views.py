@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice
+from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
 from django.urls import reverse
 from django.views import generic
   
@@ -88,6 +88,7 @@ class discussionDetails(generic.DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(discussionDetails, self).get_context_data(**kwargs)
+		context['comments'] = CommentSection.objects.all()
 		return context
 
 
