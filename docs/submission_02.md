@@ -3,7 +3,7 @@ Our application is a forum for UMass students that allows users to create discus
 
 There are some differences in the layout of our webpages from our initial proposal shown in the proposal.md file. For one, we originally intended to display comments on each discussion post, directly beneath the content of the post. We opted to change that, and have each discussion post be linked to a focused page on each post. There, users can view comments on the post and add their own comments. When creating discussions and surveys, we also opted to remove the option to categorically tag posts for sorting for the time being. It is something we could put back in later, but for now have avoided. Lastly, with our survey results display we have made a few changes. Similar to how we will have users drill down to see the details of a discussion page, we will have users vote on a post, then be brought to a designated view of that survey’s results. This will allow us to provide a more detailed view of the results, without cluttering the survey listings.
 
-
+ 
 # Team Members
 
 * Conor Carmichael
@@ -14,7 +14,7 @@ There are some differences in the layout of our webpages from our initial propos
 * Kyle Ewell
 
 # Video Link
-
+https://www.youtube.com/watch?v=yjFtHXPX5tQ&feature=youtu.be 
  
 # Design Overview
 
@@ -30,7 +30,4 @@ In our views file, we have classes and functions that serve specific urls. We ha
 
 We didn’t have problems in collaboration. We worked through any difficulties in coding the site by talking with one another. One issue we ran into, was trying to link specific survey options to their respective survey post. We were able to resolve the issue, by having a few of the team members approach the issue. One of our group members was able to figure out how to solve this issue by adding the parameter “related name = “choices”” in the survey_post foreign key element of the “Choice” model in the models.py file. By doing this we were able to add the inner for loop line and its display statement: {% for choice in  post.choices.all %} {{choice.option}}<br>. Another issue, we encountered, was trying to create a specific page, for the detailed view of surveys/discussions. We were able to solve that by implementing a regular expression based url mapping, which uses the id’s of the post to make unique urls. To improve collaboration for the next project we will make sure to start our discussions earlier in the working period for project 3 so that we are less stressed about getting things done before the deadline. 
 
-
-# Youtube video
-https://www.youtube.com/watch?v=yjFtHXPX5tQ&feature=youtu.be
 
