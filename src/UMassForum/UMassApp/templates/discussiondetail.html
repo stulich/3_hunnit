@@ -7,7 +7,7 @@
   <strong> <i>Post by:</i> {{ object.disc_author }}</strong> <br><br>
   <p>"{{ object.content }}"</p>
 
-<br><h3> Responces: </h3>
+<br><h3> Responses: </h3>
 {% for comment in  object.comments.all %}
 <p class = "discussionPost"><i>{{comment.author}}:</i><br> {{comment.text}}</p>
 {% endfor %}
