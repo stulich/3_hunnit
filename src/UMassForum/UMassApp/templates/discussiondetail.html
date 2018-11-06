@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 align = "center">Discussion Posts</h1><br>
-<h3>{{ object.title }}</h3>
-<strong>Post by {{ object.disc_author }}</strong> <br><br>
-<p>{{ object.content }}</p>
+<ul class="discussionPostList">
+  <h1 align = "center">Discussion</h1><br>
+  <h3>{{ object.title }}</h3>
+  <strong> <i>Post by:</i> {{ object.disc_author }}</strong> <br><br>
+  <p>"{{ object.content }}"</p>
 
-<br><br>
+<br><h3> Responces: </h3>
 {% for comment in  object.comments.all %}
-<p>{{comment.author}}:<br> {{comment.text}}</p>
+<p class = "discussionPost"><i>{{comment.author}}:</i><br> {{comment.text}}</p>
 {% endfor %}
 
 {% endblock %}
+
+
