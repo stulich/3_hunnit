@@ -97,6 +97,25 @@ class surveyResults(generic.ListView):
 		# And so on for more models
 		return context
 
+class discussionPosts(generic.ListView):
+	context_object_name = 'discussion_list'
+	template_name = 'discussionposts.html'
+	queryset = UserAccount.objects.all()
+
+	def get_context_data(self, **kwargs):
+		context = super(discussionPosts, self).get_context_data(**kwargs)
+		context['dposts'] = DiscussionPost.objects.all()
+		return context
+
+class discussionDetails(generic.DetailView):
+	model = DiscussionPost
+	template_name = "discussiondetail.html"
+
+	def get_context_data(self, **kwargs):
+		context = super(discussionDetails, self).get_context_data(**kwargs)
+		return context
+
+
 
 
 
