@@ -7,7 +7,7 @@
 * Conor Carmichael, Conor-Carmichael
 * Stephen Ulich, stulich
 * Monmoy Mohsin, monmoymohsin
-* Harsha Malireddy, HarshaMtopDiscussions.pngalireddy
+* Harsha Malireddy, HarshaMalireddy
 * Arjun Singh, arjunsingh1997
 * Kyle Ewell, KyleEwell1
 

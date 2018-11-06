@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Survey Results</h1>
-<h1>{{ object.title }}</h1>
-<h3>{{object.question }}</h3>
-<p>Results</p>
+<h1 align="center">Survey Results</h1>
+<h1 align="center">{{ object.title }}</h1>
+<h3 align="center">{{object.question }}</h3>
 <canvas id="resultsGraph"></canvas>
 <script>
    var resultsGraph = document.getElementById("resultsGraph");
    var length = 0
-   {% for choice in  object.choices.all %}
+   {% for choice in  object.choices.all%}
    length=length+1
    {% endfor %}
    Chart.defaults.global.defaultFontFamily = "Lato";
@@ -28,10 +27,11 @@
    
    var pieChart = new Chart(resultsGraph, {
      type: 'pie',
-     data: results
+   data: results,
+   
    });
 </script>
 {% for choice in  object.choices.all %}
-<li>{{choice.option}}({{choice.votes}})</li>
+{{choice.option}} ({{choice.votes}})
 {% endfor %}
 {% endblock %}

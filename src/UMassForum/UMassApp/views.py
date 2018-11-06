@@ -62,7 +62,7 @@ class SurveyPostsView(generic.DetailView):
 
 class surveyResults(generic.ListView):
 	context_object_name = 'survey_list'    
-	template_name = 'UMassApp/surveyresults.html'
+	template_name = 'UmassApp/surveyresults.html'
 	queryset = UserAccount.objects.all()
 
 	def get_context_data(self, **kwargs):
