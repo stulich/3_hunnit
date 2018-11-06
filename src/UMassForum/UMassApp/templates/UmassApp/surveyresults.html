@@ -1,4 +1,4 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     {% if surveyPosts %}
@@ -13,7 +13,7 @@
                   <br><strong>Answer Options</strong><br>
 
                   {% for choice in  post.choices.all %}
-                   \u2022 {{choice.option}}<br>
+                   • {{choice.option}}<br>
 
                   {% endfor %}
 
@@ -21,7 +21,6 @@
 
              {% endfor %}
         </ul>
-
     {% else %}                                                                                \
 
         <h4>There are no survey posts</h4>
