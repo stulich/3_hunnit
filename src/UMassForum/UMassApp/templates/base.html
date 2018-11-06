@@ -13,6 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
   <!-- charts js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
   {% load static %}
@@ -27,11 +28,7 @@
     <a class="navbar-brand" href="/">
       <img src="{% static 'images/umasslogo.png' %}" style="margin-top:-30px;" width="200" height="75" alt="">
     </a>
-    <!-- <a href="/" class="nav navbar-nav navbar-logo" style="
-      padding: 5px;
-      left: 50%;">
-      <img src="{% static 'images/umasslogo.png' %}" style="height:25%;width:25%;">
-    </a> -->
+
     <ul class="navbar-nav mr-auto">
       <!-- Survey Dropdown -->
       <li class="nav-item dropdown">
@@ -56,50 +53,16 @@
     </ul>
     <ul class="navbar-nav" style="float:right; margin-right:2%">
       <!-- Utilities -->
-      <li class="nav-item navItems">Log In
-        <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+      <li class="nav-item navItems">
+        <a>
+          Log In<span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+        </a>
       </li>
       <li class="nav-item">
         <input class="form-control" style="margin-left:2em;" type="text" placeholder="Search" aria-label="Search">
       </li>
     </ul>
   </nav>
-
-
-
-<!-- 
-  <nav class="navbar navbar-inverse" style="background-color: maroon;">
-      <div class="container-fluid">
-
-          <div class="collapse navbar-collapse" id="myNavbar">
-              <a href="/" class="nav navbar-nav navbar-logo" style="
-                  padding: 5px;
-                  left: 50%;
-                  " ><img src="{% static 'images/umasslogo.png' %}" style="height:25%;width:25%;">
-              </a>
-              <ul class="nav navbar-nav" style="padding: 10px">
-                <li class="nav-item"><a class="nav-link"href="/UMassApp/surveyposts/">Survey Posts</a></li>
-                <li class="nav-item"><a class="nav-link"href="/UMassApp/discussionposts/">Discussion Posts</a></li>
-                <li class="nav-item"><a class="nav-link"href="/UMassApp/surveyresults/">Survey Results</a></li>
-                <li class="nav-item"><a class="nav-link"href="/UMassApp/createsurvey/">Create a Survey</a></li>
-                <li class="nav-item"><a class="nav-link"href="/UMassApp/discussioncreation/">Create a Discussion</a></li>
-
-                
-              </ul>
-            
-            
-            <ul class="nav navbar-nav navbar-right" style="padding: 10px">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-            </ul>
-            <ul class="nav navbar-nav navbar-right" style="padding: 10px ">
-              <span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
-            </ul>
-          </div>
-      </div>
-  </nav>               -->
-
-  
-
 
   <!-- OLD v -->
   <div class="container-fluid">
