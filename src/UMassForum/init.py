@@ -11,7 +11,7 @@ fake = Faker()
 
 
 
-# Create Authors
+# Create users
 users = []
 for i in range(1, 10):
     a_fname = fake.first_name()
@@ -22,25 +22,8 @@ for i in range(1, 10):
     user.save()
     users.append(user)
 
-# LibraryEvents = []
-# for i in range(1, 10):
-#     lib_title = fake.text(30)
-#     lib_dateTime = fake.date_time_this_month(before_now=False, after_now=True, tzinfo=None)
-#     lib_location = fake.city()
-#     lib_bookToDisucss = fake.text(50)
-    
 
-#     libraryEvent = LibraryEvent(
-#         event_Title=lib_title, date_and_time=lib_dateTime, event_Location=lib_location, book_To_Discuss=lib_bookToDisucss
-#     )
-#     libraryEvent.save()
-#     LibraryEvents.append(libraryEvent)
-
-
-
-
-
-# Create Books
+# Create discussions
 discussionPosts = []
 for i in range(1, 20):
     a_title = fake.text(50)
@@ -61,7 +44,7 @@ for i in range(1, 40):
     comment.save()
     comments.append(comment)
 
-# Create Books
+# Create surveys
 surveyPosts = []
 for i in range(1, 20):
     a_title = fake.text(50)
@@ -110,3 +93,26 @@ Run the django server with:
 ====================================================================
 """
 print(message)
+
+
+
+#creates users
+createdUsers = []
+print("Generated users:")
+for a in users:
+    username = a.first_name.lower()[0] + a.last_name.lower()
+    email = f"{username}@326.edu"
+    password = a.last_name
+    user = User.objects.create_user(username, email, password)
+    user.first_name = a.first_name
+    user.last_name = a.last_name
+    user.save()
+    createdUsers.append(user)
+    print(f"  username: {username}, password: {password}")
+
+
+
+
+
+
+

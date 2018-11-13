@@ -61,6 +61,16 @@
       <li class="nav-item">
         <input class="form-control" style="margin-left:2em;" type="text" placeholder="Search" aria-label="Search">
       </li>
+                {% if user.is_authenticated %}
+          <li>User: {{ user.get_username }}</li>
+    <!-- NEW 15 -->
+
+
+          <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+          {% else %}
+          <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+          {% endif %}
+
     </ul>
   </nav>
 
