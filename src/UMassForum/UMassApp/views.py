@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
 from django.urls import reverse
 from django.views import generic
+
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
   
 # Create your views here.  
 def index(request): 
@@ -106,6 +108,14 @@ class UserAccountView(LoginRequiredMixin, generic.ListView):
         )
 
 
+class UserGeneralView(generic.ListView):
+	context_object_name = 'user_data'
+	template_name = 'userindividual.html'
+	queryset = UserAccount.objects.all()
 
-
-
+	def get_context_data(self, **kwargs):
+		# context={}
+		context = super(discussionPosts, self.request.user).get_context_data(**kwargs)
+		context['discposts'] = DiscussionPost.objects.filter(disc_author=UserAccount(account=self.request.user))
+		# context['surveyposts'] = SurveyPost.objects.filter(survey_author=self.request.user)
+		return context

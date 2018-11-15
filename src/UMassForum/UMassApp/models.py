@@ -15,6 +15,7 @@ class UserAccount(models.Model):
     # )
     account = models.OneToOneField(
         User,
+        related_name='UserAccount',
         null=True,
         on_delete=models.CASCADE,
         # primary_key=True,

@@ -11,6 +11,6 @@ urlpatterns = [
     path("discussioncreation/", views.createDiscussion, name="discussioncreation"),
     path(r'^surveyresults/(?P<pk>[0-9A-Fa-f-]+)', views.SurveyPostsView.as_view(), name="survey-post-detail"),
     path(r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)', views.discussionDetails.as_view(), name="discussion-post-detail"),
-
+    path( "user/", views.UserGeneralView.as_view(), name="userindividual" ),
 ]
       
