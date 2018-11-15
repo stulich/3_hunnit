@@ -12,15 +12,44 @@ fake = Faker()
 
 
 # Create users
-users = []
-for i in range(1, 10):
+#creates users
+createdUsers = []
+users=[]
+print("Generated users:")
+for a in range(10):
     a_fname = fake.first_name()
     a_lname = fake.last_name()
-    user = UserAccount(
-        first_name=a_fname, last_name=a_lname, user_name=a_fname
-    )
+    username = a_fname.lower()[0] + a_lname.lower()
+    email = f"{username}@326.edu"
+    password = a_lname
+    user = User.objects.create_user(username, email, password)
+    user.first_name = a_fname
+    user.last_name = a_lname
     user.save()
-    users.append(user)
+    createdUsers.append(user)
+    print(f"  username: {username}, password: {password}")
+    newUser = UserAccount(
+        account=user, first_name=a_fname, last_name=a_lname, user_name=username
+    )
+    newUser.save()
+    users.append(newUser)
+
+
+
+
+
+
+
+
+# users = []
+# for i in range(1, 10):
+#     a_fname = fake.first_name()
+#     a_lname = fake.last_name()
+#     user = UserAccount(
+#         first_name=a_fname, last_name=a_lname, user_name=a_fname
+#     )
+#     user.save()
+#     users.append(user)
 
 
 # Create discussions
@@ -96,19 +125,7 @@ print(message)
 
 
 
-#creates users
-createdUsers = []
-print("Generated users:")
-for a in users:
-    username = a.first_name.lower()[0] + a.last_name.lower()
-    email = f"{username}@326.edu"
-    password = a.last_name
-    user = User.objects.create_user(username, email, password)
-    user.first_name = a.first_name
-    user.last_name = a.last_name
-    user.save()
-    createdUsers.append(user)
-    print(f"  username: {username}, password: {password}")
+
 
 
 

@@ -2,17 +2,23 @@ import uuid
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class UserAccount(models.Model):
     """Model representing a user."""
 
-    id = models.UUIDField(
-        primary_key=True,
-        default=uuid.uuid4,
-        help_text="Unique ID for this user across whole platform",
+    # id = models.UUIDField(
+    #     primary_key=True,
+    #     default=uuid.uuid4,
+    #     help_text="Unique ID for this user across whole platform",
+    # )
+    account = models.OneToOneField(
+        User,
+        null=True,
+        on_delete=models.CASCADE,
+        # primary_key=True,
     )
-
     # A character field for the first name.
     first_name = models.CharField(max_length=20)
 

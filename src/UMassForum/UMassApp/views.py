@@ -91,6 +91,20 @@ class discussionDetails(generic.DetailView):
 		context['comments'] = CommentSection.objects.all()
 		return context
 
+class UserAccountView(LoginRequiredMixin, generic.ListView):
+    """Generic class-based view listing posts of current user."""
+
+    model = DiscussionPost
+    template_name = "bookinstance_list_borrowed_user.html"
+    paginate_by = 10
+
+    def get_queryset(self):
+        return (
+            DiscussionPost.objects.filter(disc_author=self.request.user)
+            # .filter(status__exact="o")
+            # .order_by("due_back")
+        )
+
 
 
 
