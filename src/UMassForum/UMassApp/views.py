@@ -113,9 +113,10 @@ class UserGeneralView(generic.ListView):
 	template_name = 'userindividual.html'
 	queryset = UserAccount.objects.all()
 
+
 	def get_context_data(self, **kwargs):
-		# context={}
-		context = super(discussionPosts, self.request.user).get_context_data(**kwargs)
-		context['discposts'] = DiscussionPost.objects.filter(disc_author=UserAccount(account=self.request.user))
-		# context['surveyposts'] = SurveyPost.objects.filter(survey_author=self.request.user)
+		context={}
+		context['discposts']=(DiscussionPost.objects.filter(disc_author__in=(UserAccount.objects.filter(account=self.request.user))))
+		context['surveyposts']=(SurveyPost.objects.filter(survey_author__in=(UserAccount.objects.filter(account=self.request.user))))
 		return context
+
