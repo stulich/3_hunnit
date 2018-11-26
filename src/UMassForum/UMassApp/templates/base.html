@@ -62,7 +62,7 @@
         <input class="form-control" style="margin-left:2em;" type="text" placeholder="Search" aria-label="Search">
       </li>
                 {% if user.is_authenticated %}
-          <li>User: {{ user.get_username }}</li>
+          <li>User: {{ user.get_usernam }} </li>
     <!-- NEW 15 -->
 
 
@@ -84,6 +84,7 @@
             <li>User: </li>
           <ul>
             <li>Welcome {{ user.first_name }}</li>
+            <li><a href="user">Your Posts</a></li>
           </ul>
           {% endif %}
         </div>
