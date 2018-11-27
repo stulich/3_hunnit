@@ -1,8 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
+from UMassApp.forms import CreateDForm
 from django.urls import reverse
 from django.views import generic
+from django.views.generic import TemplateView
+from django.core.exceptions import *
 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
   
@@ -93,6 +96,26 @@ class discussionDetails(generic.DetailView):
 		context['comments'] = CommentSection.objects.all()
 		return context
 
+class createDiscussion(TemplateView):
+	template_name = 'discussionCreation.html'
+
+	def get(self, request):
+		form = CreateDForm()
+		return render(request, self.template_name, {'form': form})
+
+	def post(self, request):
+		form = CreateDForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.disc_author = request.user.UserAccount
+			post.save()
+#			DiscussionPost.disc_author = request.UserAccount
+#			DiscussionPost.append(post)
+
+			text = form.cleaned_data['title']
+			text = form.cleaned_data['content']
+		args = {'form': form, 'text': text}
+		return redirect('/UMassApp/user/')
 
 class UserGeneralView(generic.ListView):
 	context_object_name = 'user_data'

@@ -7,17 +7,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1><strong>Discussion Creation</strong></h1>
+<div class="container">
+	<h1><strong>Create Discussion</strong></h1>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p  }}
+		<button type="submit">Submit</button>
+	</form>
+</div>
 
-<!-- <form> -->
-    Title:
-    <input type = "text"><br><br>
-
-    Author:  
-    <input type = "text"><br><br>
-
-    Synopsis of thoughts: 
-    <input type = "text" class="enlarge"><br><br>
-    <a href= "/UMassApp/surveyposts/"><button type = "button">Post</button></a>     
-<!-- </form>   -->        
 {% endblock %}
