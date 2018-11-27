@@ -50,11 +50,11 @@ class DiscussionPost(models.Model):
         help_text="Unique ID for this post",
     )
 
-    title = models.CharField(max_length=25)
+    title = models.CharField(max_length=100)
 
     disc_author = models.ForeignKey("UserAccount", on_delete=models.SET_NULL, null=True)
 
-    content=models.CharField(max_length=400)
+    content=models.CharField(max_length=4000)
 
     comment_section= models.ForeignKey("CommentSection", on_delete=models.SET_NULL, null=True)
 
@@ -68,6 +68,7 @@ class DiscussionPost(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return f"{self.title}"
+
 
 class CommentSection(models.Model):
     """Model representing a comment."""
