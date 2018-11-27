@@ -1,14 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect 
 from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
-from UMassApp.forms import CreateDForm
+# from UMassApp.forms import CreateDForm
+from UMassApp.forms import CreateDForm, UpdateDForm
 from django.urls import reverse
 from django.views import generic
 from django.views.generic import TemplateView
 from django.core.exceptions import *
 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-  
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from UMassApp.models import DiscussionPost, SurveyPost  
+from .forms import UpdateDForm
+
 # Create your views here.  
 def index(request): 
 	"""View function for home page of site."""
@@ -96,7 +102,7 @@ class discussionDetails(generic.DetailView):
 		context['comments'] = CommentSection.objects.all()
 		return context
 
-class createDiscussion(TemplateView):
+class createDiscussion(TemplateView): 
 	template_name = 'discussionCreation.html'
 
 	def get(self, request):
@@ -109,8 +115,7 @@ class createDiscussion(TemplateView):
 			post = form.save(commit=False)
 			post.disc_author = request.user.UserAccount
 			post.save()
-#			DiscussionPost.disc_author = request.UserAccount
-#			DiscussionPost.append(post)
+
 
 			text = form.cleaned_data['title']
 			text = form.cleaned_data['content']
@@ -122,10 +127,24 @@ class UserGeneralView(generic.ListView):
 	template_name = 'userindividual.html'
 	queryset = UserAccount.objects.all()
 
-
 	def get_context_data(self, **kwargs):
 		context={}
 		context['discposts']=(DiscussionPost.objects.filter(disc_author__in=(UserAccount.objects.filter(account=self.request.user))))
 		context['surveyposts']=(SurveyPost.objects.filter(survey_author__in=(UserAccount.objects.filter(account=self.request.user))))
 		return context
+ 
+class DiscussionUpdate(UpdateView):
+	model = DiscussionPost    
+	fields = ['title', 'content'] 
+ 
+# class DiscussionDelete(DeleteView):    
+# 	model = DiscussionPost 
+# 	success_url = reverse_lazy('discussion_posts')
 
+# class SurveyUpdate(UpdateView):
+# 	model = SurveyPost 
+# 	fields = '__all__'   
+
+# class SurveyDelete(DeleteView):
+# 	model = SurveyPost 
+# 	success_url = reverse_lazy('surveyPosts')  
