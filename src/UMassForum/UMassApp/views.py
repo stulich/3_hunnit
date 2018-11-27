@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect 
 from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
 # from UMassApp.forms import CreateDForm
-from UMassApp.forms import CreateDForm, UpdateDForm
-from django.urls import reverse
+from UMassApp.forms import CreateDForm 
+from django.urls import reverse 
 from django.views import generic
 from django.views.generic import TemplateView
 from django.core.exceptions import *
@@ -13,7 +13,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from UMassApp.models import DiscussionPost, SurveyPost  
-from .forms import UpdateDForm
+
 
 # Create your views here.  
 def index(request): 
