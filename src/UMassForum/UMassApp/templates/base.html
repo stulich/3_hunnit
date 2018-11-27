@@ -53,23 +53,25 @@
     </ul>
     <ul class="navbar-nav" style="float:right; margin-right:2%">
       <!-- Utilities -->
-      <li class="nav-item navItems">
-        <a>
-          Log In&nbsp;<span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
-        </a>
-      </li>
+      {% if user.is_authenticated %}
+
+        <li class="nav-item navItems">
+          <a href="{% url 'logout'%}" style="text-decoration: none; color:white">Logout</a>
+        </li>
+
+      {% else %}
+
+        <li class="nav-item navItems">
+          <a href="{% url 'login'%}?next={{request.path}}" style="text-decoration: none; color:white">
+            Log In&nbsp;<span class="glyphicon glyphicon-menu-hamburger" style= "font-size: 30px; color:#555"></span>
+          </a>
+        </li>
+
+      {% endif %}
+      
       <li class="nav-item">
         <input class="form-control" style="margin-left:2em;" type="text" placeholder="Search" aria-label="Search">
       </li>
-                {% if user.is_authenticated %}
-          <li>User: {{ user.get_username }} </li>
-    <!-- NEW 15 -->
-
-
-          <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
-          {% else %}
-          <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-          {% endif %}
 
     </ul>
   </nav>
