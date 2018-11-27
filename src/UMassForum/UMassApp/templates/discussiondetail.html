@@ -5,13 +5,20 @@
   <h1 align = "center">Discussion</h1><br>
   <h3>{{ object.title }}</h3>
   <strong> <i>Post by:</i> {{ object.disc_author }}</strong> <br><br>
-  <p>"{{ object.content }}"</p>
-
+  <p>"{{ object.content }}"</p> 
+  
+  <!-- <!-- <form action = "" method = "post">
+      {% csrf_token %} 
+    <input type = "submit" value = "edit"> 
+  </form>       -->
+   
+   <a href="{{ request.get_full_path }}/update">edit</a>
+      
+    
 <br><h3> Responses: </h3>
 {% for comment in  object.comments.all %}
 <p class = "discussionPost"><i>{{comment.author}}:</i><br> {{comment.text}}</p>
 {% endfor %}
-
+ 
 {% endblock %}
-
-
+  
