@@ -7,13 +7,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-	<h1><strong>Create Discussion</strong></h1>
-	<form method="post">
-		{% csrf_token %}
-		{{ form.as_p  }}
-		<button type="submit">Submit</button>
-	</form>
-</div>
-
+{% if user.is_authenticated %}	
+	<div class="container">
+		<h1><strong>Create Discussion</strong></h1>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p  }}
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+{% else %}
+	<h1> You must log in to create a post.</h1>
+	<h2>Log in via the navbar</h2>
+{% endif %}
 {% endblock %}
