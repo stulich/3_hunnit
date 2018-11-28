@@ -16,6 +16,8 @@ There are no differences to our application other than adding the functionality 
 Video Link: https://youtu.be/Sc3QC6qiIOk
 
 # Design Overview
+For this submission Django user accounts were created, allowing login/logout functionality simmilair to the examples done in class. The users were created in the init.py file. Since we already had a UserAccount model created which was linked to other datatypes we had to link the new users to the existing user accounts with a one to one mapping which included changing the model of userAccount to accept a user as a one to one field. 
+
 For user interaction, we used Django forms to implement fields that users can use to create and update discussion posts. In our template, we checked to see whether a user is authenticated, is a superuser, or is neither of those. This allowed us to handle each case, by directing authorized users to the form, throwing a message to superusers to use the admin site, and throwing a message to log in for users.
 
 In terms of functionality, we decided that users will not be allowed to modify survey posts because it could lead to dishonest data and would defeat the purpose of allowing surveys. We also decided to not allow users to delete posts because they could delete useful information in their posts or in the responses. Only admins will be allowed to delete posts if the content is deemed inappropriate.
