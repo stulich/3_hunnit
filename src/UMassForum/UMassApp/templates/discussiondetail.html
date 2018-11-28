@@ -7,13 +7,12 @@
   <strong> <i>Post by:</i> {{ object.disc_author }}</strong> <br><br>
   <p>"{{ object.content }}"</p> 
   
-  <!-- <!-- <form action = "" method = "post">
-      {% csrf_token %} 
-    <input type = "submit" value = "edit"> 
-  </form>       -->
-   
+  
+   {% if user.is_authenticated %}
+   	{% if user.username == object.disc_author.user_name  %}
    <a href="{{ request.get_full_path }}/update">edit</a>
-      
+    {% endif %}
+   {% endif %}
     
 <br><h3> Responses: </h3>
 {% for comment in  object.comments.all %}
