@@ -7,7 +7,9 @@
   a website developed by
   <em>3Hunnit</em>!
 </p>
-<p>For full functionality please log in now</p>
+{% if not user.is_authenticated %}
+	<p>For full functionality please log in now</p>
+{% endif %}
 
 <ul>
   <li><strong>Total Discussion Posts:</strong> {{ num_discposts }}</li>
