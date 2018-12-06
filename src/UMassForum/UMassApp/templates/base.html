@@ -83,10 +83,28 @@
         {% block sidebar %}
         <div class="sidebar">
           {% if user.is_authenticated %}
-            <li>User: </li>
-          <ul>
-            <li>Welcome {{ user.first_name }}</li>
-            <li><a href="/UMassApp/user">Your Posts</a></li>
+          <ul style="list-style:none;padding-bottom:12px;">
+            <li>
+              <img class="profilePic" src = "{% static 'images/profile_picture.jpg' %}" style="float:center"  height="80" width="80">
+            </li>
+            <li>
+              <h2>
+                Welcome {{ user.first_name }}
+              </h2>
+            </li>
+            <li><a  href="/UMassApp/user" style="color:black  !important ;">View Your Posts<span class="glyphicon glyphicon-share-alt"></span></a> </span></li>
+          </ul>
+          {% else %} 
+          <ul style="list-style:none;padding-bottom:12px;">
+            
+            <li>
+              <img class="profilePic" src = "{% static 'images/profile_picture.jpg' %}" style="float:center"  height="80" width="80">
+            </li>
+            <li>
+                Please <a href="{% url 'login'%}?next={{request.url}}" style="text-decoration: none; color:black">
+                    <u>Log In</u>
+                  </a> to see profile information.
+              </li>
           </ul>
           {% endif %}
         </div>
@@ -95,6 +113,25 @@
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
     </div>
   </div>
+</div>
+
+<!-- <div class="footer">
+  <h4 style="text-align:center"><i>UMass Forums is a 3_hunnit production</i></h4>
+  <div style="float:left">
+    <h4 style="text-align:left; margin-left:10%">Our Members</h4>
+    <ul style="float:left">
+      <li style="display:inline">Conor Carmichael,</li>
+      <li style="display:inline">Kyle Ewell,</li>
+      <li style="display:inline">Harsha Malireddy,</li>
+      <li style="display:inline">Monmoy Mohsin,</li>
+      <li style="display:inline">Arjun Singh,</li>
+      <li style="display:inline">Stephen Ulich</li>
+    </ul>
+  </div>
+  
+</div> -->
+
+
 </body>
 
 </html>

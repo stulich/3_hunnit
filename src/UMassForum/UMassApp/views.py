@@ -129,6 +129,7 @@ class UserGeneralView(generic.ListView):
 
 	def get_context_data(self, **kwargs):
 		context={}
+		context['user'] = self.request.user
 		context['discposts']=(DiscussionPost.objects.filter(disc_author__in=(UserAccount.objects.filter(account=self.request.user))))
 		context['surveyposts']=(SurveyPost.objects.filter(survey_author__in=(UserAccount.objects.filter(account=self.request.user))))
 		return context
