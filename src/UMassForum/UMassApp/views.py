@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect 
 from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
 # from UMassApp.forms import CreateDForm
-from UMassApp.forms import CreateDForm 
+from UMassApp.forms import CreateDForm, CreateCommentForm
 from django.urls import reverse 
 from django.views import generic
 from django.views.generic import TemplateView
@@ -100,7 +100,25 @@ class discussionDetails(generic.DetailView):
 	def get_context_data(self, **kwargs):
 		context = super(discussionDetails, self).get_context_data(**kwargs)
 		context['comments'] = CommentSection.objects.all()
+		form = CreateCommentForm()
+		context['form']=form
 		return context
+		
+
+	def post(self, request, pk,**kwargs):
+		form = CreateCommentForm(request.POST)
+		if form.is_valid():
+			comment = form.save(commit=False)
+			comment.post = DiscussionPost.objects.filter(pk=pk)[:1].get()
+			comment.author = request.user.UserAccount
+			comment.save()
+
+
+			theText = form.cleaned_data['text']
+			
+		args = {'form': form, 'text': theText}
+		return redirect(request.path_info)
+
 
 class createDiscussion(TemplateView): 
 	template_name = 'discussionCreation.html'

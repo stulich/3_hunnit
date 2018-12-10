@@ -15,7 +15,7 @@
 		<h1><strong>Create Discussion</strong></h1>
 		<form method="post">
 			{% csrf_token %}
-			{{ form.as_p  }}
+			{{ form }}
 			<button class="btn btn-success" type="submit">Submit</button>
 		</form>
 	</div>
