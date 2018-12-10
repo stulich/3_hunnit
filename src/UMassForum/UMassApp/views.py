@@ -117,7 +117,7 @@ class discussionDetails(generic.DetailView):
 			theText = form.cleaned_data['text']
 			
 		args = {'form': form, 'text': theText}
-		return redirect(request.path_info)
+		return redirect('/UMassApp/discussionposts/')
 
 
 class createDiscussion(TemplateView): 
