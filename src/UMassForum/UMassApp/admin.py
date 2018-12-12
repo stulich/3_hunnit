@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from UMassApp.models import UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice
+from UMassApp.models import UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice, Document
 @admin.register(UserAccount)
 class UserAccountAdmin(admin.ModelAdmin):
 
@@ -47,6 +47,14 @@ class Choice (admin.ModelAdmin):
     list_display = ("survey_post", "option", "votes")
     fields = ["survey_post", "option","votes"]
 
+class DocumentInline(admin.TabularInline):
+    model = Document
+
+@admin.register(Document)
+class DocumentPostAdmin (admin.ModelAdmin):
+
+    list_display = ("id", "description", "author", "uploaded_at")
+    fields = ["description", "author", "uploaded_at"]
 
 
 

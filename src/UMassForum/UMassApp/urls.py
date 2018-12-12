@@ -14,11 +14,9 @@ urlpatterns = [
     path(r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)', views.discussionDetails.as_view(), name="discussion-post-detail"),
     # path('discussionposts/uuid.id/', views.discussionDetails.as_view(), name="discussion-post-detail"),
     path( "user/", views.UserGeneralView.as_view(), name="userindividual" ),
-    path(r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)/update/', views.DiscussionUpdate.as_view(), name='discussionposts_update') 
-    # path('discussionposts/uuid.id/update/', views.DiscussionUpdate.as_view(), name='discussionposts_update') 
-    
-    # path('surveyposts/<int:pk>/update/', views.SurveyUpdate.as_view(), name='surveyposts_update'),  
-    # path('discussionposts/<int:pk>/delete/', views.DiscussionDelete.as_view(), name='discussionposts_delete'),   
-    # path('surveyposts/<int:pk>/delete/', views.SurveyDelete.as_view(), name='surveyposts_delete') 
-]        
+    path(r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)/update/', views.DiscussionUpdate.as_view(), name='discussionposts_update'),
+    path("docUpload/", views.model_form_upload, name="model_form_upload"),
+    path("imageposts/", views.imagePosts.as_view(), name="image_posts"),
+    ] 
         
+

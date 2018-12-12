@@ -1,5 +1,5 @@
 from django import forms
-from UMassApp.models import DiscussionPost, CommentSection
+from UMassApp.models import DiscussionPost, CommentSection, Document
 
 
 class CreateDForm(forms.ModelForm):
@@ -16,3 +16,10 @@ class CreateCommentForm(forms.ModelForm):
 	class Meta:
 		model = CommentSection
 		fields = ('text',)
+
+class DocumentForm(forms.ModelForm):
+	description = forms.CharField(max_length=50)
+	document = forms.ImageField()
+	class Meta:
+		model = Document
+		fields = ('description', 'document',)

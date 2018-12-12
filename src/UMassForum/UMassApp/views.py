@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect 
-from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection
+from UMassApp.models import DiscussionPost, SurveyPost, UserAccount, Choice, CommentSection, Document
 # from UMassApp.forms import CreateDForm
-from UMassApp.forms import CreateDForm, CreateCommentForm
+from UMassApp.forms import CreateDForm, CreateCommentForm,DocumentForm
 from django.urls import reverse 
 from django.views import generic
 from django.views.generic import TemplateView
@@ -112,8 +112,6 @@ class discussionDetails(generic.DetailView):
 			comment.post = DiscussionPost.objects.filter(pk=pk)[:1].get()
 			comment.author = request.user.UserAccount
 			comment.save()
-
-
 			theText = form.cleaned_data['text']
 			
 		args = {'form': form, 'text': theText}
@@ -155,15 +153,31 @@ class UserGeneralView(generic.ListView):
 class DiscussionUpdate(UpdateView):
 	model = DiscussionPost    
 	fields = ['title', 'content'] 
- 
-# class DiscussionDelete(DeleteView):    
-# 	model = DiscussionPost 
-# 	success_url = reverse_lazy('discussion_posts')
 
-# class SurveyUpdate(UpdateView):
-# 	model = SurveyPost 
-# 	fields = '__all__'   
 
-# class SurveyDelete(DeleteView):
-# 	model = SurveyPost 
-# 	success_url = reverse_lazy('surveyPosts')  
+def model_form_upload(request)	:
+	if request.method == 'POST':
+		form = DocumentForm(request.POST, request.FILES)
+
+		if form.is_valid():
+			Document.author = request.user.UserAccount
+			form.save()
+			text = form.cleaned_data['description']
+			return redirect('/UMassApp/imageposts/')
+	else:
+		form = DocumentForm()
+	return render(request, 'docUpload.html', {
+		'form': form
+	})
+
+class imagePosts(generic.ListView):
+	context_object_name = 'image_posts'
+	template_name = 'imageposts.html'
+	queryset = UserAccount.objects.all()
+
+	def get_context_data(self, **kwargs):
+		context = super(imagePosts, self).get_context_data(**kwargs)
+		context['iposts'] = Document.objects.all()
+		return context
+
+
