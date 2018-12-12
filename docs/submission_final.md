@@ -60,6 +60,22 @@ The page that holds the form to submit one of the discussions to be promoted to 
 # URL Routes/Mappings (HELP)
 (A final up-to-date table of all the URL routes that your application supports and a short description of what those routes are used for. You should also indicate any authentication and permissions on those routes.)
 
+|  Urls    |     Description                                                                                             |
+|----------|:-----------------------------------------------------------------------------------------------------------:|
+| “”                                              | This is the homepage of the website.                                 |                                        
+|"surveyposts/"                                   | This page displays the list of survey posts.                         |                            
+|"createsurvey/"                                  | This goes to a form to create a survey.                              |                               |"discussionposts/"                               | This page displays the list of discussion posts.                     |                            
+|"surveyresults/".                                | This page displays the list of survey posts with the option of       |
+|                                                    picking an nswer choice.                                            |                 
+|"discussioncreation/"                            | This goes to a form to create a discussion.                          |       
+|r'^surveyresults/(?P<pk>[0-9A-Fa-f-]+)'          | This displays the survey results of each individual survey post.     |       
+|r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)'        | This displays each discussion post where it displays each discussion |
+|                                                   post in detail where it gives you the option to edit the post.       |                
+|"user/"                                          | This goes to each users homepage.                                    |                                       |r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)/update/ | This displays each discussion post form to edit the discussion post  |
+|                                                   that was selected.  Users can only edit their posts.                 |
+|"docUpload/"                                     | This displays the page to upload images.                             |
+|"imageposts/"                                    | This displays the list of images uploaded.                           |
+    
 
 # Authentication/Authorization (HELP) 
 (A final up-to-date description of how users are authenticated and any permissions for specific users (if any) that you used in your application. You should mention how they relate to which UI views are accessible.)
