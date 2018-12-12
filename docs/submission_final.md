@@ -69,7 +69,7 @@ The page that holds the form to submit one of the discussions to be promoted to 
 |"discussioncreation/"                            | This goes to a form to create a discussion.                          |       
 |r'^surveyresults/(?P<pk>[0-9A-Fa-f-]+)'          | This displays the survey results of each individual survey post.     |       
 |r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)'        | This displays each discussion post where it displays each discussion |
-|                                                   post in detail where it gives you the option to edit the post.       |                
+|                                                 |  post in detail where it gives you the option to edit the post.      |                
 |"user/"                                          | This goes to each users homepage.                                    |                                       
 |"docUpload/"                                     | This displays the page to upload images.                             |
 |"imageposts/"                                    | This displays the list of images uploaded.                           |
