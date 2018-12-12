@@ -65,8 +65,8 @@ The page that holds the form to submit one of the discussions to be promoted to 
 | “”                                              | This is the homepage of the website.                                 |                                        
 |"surveyposts/"                                   | This page displays the list of survey posts.                         |                            
 |"createsurvey/"                                  | This goes to a form to create a survey.                              |                               |"discussionposts/"                               | This page displays the list of discussion posts.                     |                            
-|"surveyresults/".                                | This page displays the list of survey posts with the option of       |
-|                                                    picking an nswer choice.                                            |                 
+|"surveyresults/".                                | This page displays the list of survey posts with the option of       
+                                                    picking an answer choice.                                             |                 
 |"discussioncreation/"                            | This goes to a form to create a discussion.                          |       
 |r'^surveyresults/(?P<pk>[0-9A-Fa-f-]+)'          | This displays the survey results of each individual survey post.     |       
 |r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)'        | This displays each discussion post where it displays each discussion |
