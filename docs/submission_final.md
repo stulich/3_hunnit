@@ -74,12 +74,10 @@ The page that holds the form to submit one of the discussions to be promoted to 
 |"docUpload/"                                     | This displays the page to upload images.                             |
 |"imageposts/"                                    | This displays the list of images uploaded.                           |
 |r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)/update/'| This displays each discussion post form to edit the discussion post  |
-|                                                   that was selected. Users can only edit their posts.                  |
+|                                                 |  that was selected. Users can only edit their posts.                 |
     
 
 # Authentication/Authorization (HELP) 
-(A final up-to-date description of how users are authenticated and any permissions for specific users (if any) that you used in your application. You should mention how they relate to which UI views are accessible.)
-
 To check if users are authenticated we write the condition {% if user.is_authenticated %}. Doing this makes sure that the user is logged in. The line {% if user.username == object.disc_author.user_name  %} helps ensure that only the user can only edit the post they create. These lines of code are present in the template files createsurvey.html and discussiondetail.html. 
 
 # Team Choice (HELP)
