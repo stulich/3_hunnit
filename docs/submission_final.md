@@ -64,10 +64,10 @@ The page that holds the form to submit one of the discussions to be promoted to 
 # Authentication/Authorization (HELP) 
 (A final up-to-date description of how users are authenticated and any permissions for specific users (if any) that you used in your application. You should mention how they relate to which UI views are accessible.)
 
+To check if users are authenticated we write the condition {% if user.is_authenticated %}. Doing this makes sure that the user is logged in. The line {% if user.username == object.disc_author.user_name  %} helps ensure that only the user can only edit the post they create. These lines of code are present in the template files createsurvey.html and discussiondetail.html. 
 
 # Team Choice (HELP)
-You should briefly mention your team choice component for your application. You should highlight any additions to your application that are part of your team choice, such as, URL routes, UI views, data model, to make it clear what your team choice addition is.
-
+For our team choice component we decided to add functionality that would allow users to upload images and view images posted by others. For this team choice we added the Document model in models.py. This model consisted of a image field, a description, a time uploaded, and an author field. To allow images to be added we created a docUpload.html page which interacts with forms.py to update the Document data model. This included additions to forms.py, views.py, and urls.py. We created a list view for the images that shows the images, the descriptions and the authors. This is shown in imageposts.html which also required additions to urls.py. Finally we added to the base.html to make these upload pages and viewing pages for the images easily accessible. 
 
 # Conclusion 
 
