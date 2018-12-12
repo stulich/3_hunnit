@@ -106,8 +106,6 @@ class SurveyPost(models.Model):
 
     # def getOptions(self):
         
-    
-
 
 class Choice(models.Model):
 
@@ -115,6 +113,9 @@ class Choice(models.Model):
     option = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
 
-  
-
+class Document(models.Model):
+    description = models.CharField(max_length=255, blank=True)
+    document = models.ImageField(upload_to = 'UMassApp/uploadedImages')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey('UserAccount',on_delete=models.SET_NULL, null=True)
 
