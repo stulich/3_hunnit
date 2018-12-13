@@ -3,7 +3,7 @@
 #Fall 2018
 
 # Overview 
-Our application is a forum for UMass students that allows users to create discussion posts and survey posts. Users can create discussion posts by entering a title and the content of the discussion. Users can create survey posts by entering a question and giving multiple choice options for others to choose from. The authors of survey posts can also select how they want the results to be displayed: a poll percentage, bar chart or pie chart. The aim is to provide more ways for UMass students to communicate, and to see how the community at large feels on certain topics. 
+Our application is a forum for UMass students that allows users to create discussion posts and survey posts. Users can create discussion posts by entering a title and the content of the discussion. Users can create survey posts by entering a question and giving multiple choice options for others to choose from. The authors of survey posts can also select how they want the results to be displayed: a poll percentage, bar chart or pie chart. Users can also upload images and comment on posts. The aim is to provide more ways for UMass students to communicate, and to see how the community at large feels on certain topics. 
 
 Our web app is particularly innovative in the way it can collect relevant data and present it in a clean and efficent way. Our web app is also much better at creating a sense of community when compared to other similar platforms like Reddit or Yahoo. The information shared on our platform will be made by Umass students for Umass students in a way that hasnt been done before.  
 
