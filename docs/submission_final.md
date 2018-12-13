@@ -26,7 +26,7 @@ In terms of functionality, we decided that users will not be allowed to modify s
 
 # User Interface 
 
-![HomePage IMG](docs/imgs/homepage.png "HomePage")
+![HomePage IMG](/imgs/homepage.png "HomePage")
 This is the main landing page when a user first logs in to the site, which will show some basic statistics about the website, and allow the user to access the content he/she desires.
 
 ![Login IMG](docs/imgs/login.png "Login")
