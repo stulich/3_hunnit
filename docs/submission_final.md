@@ -49,7 +49,7 @@ The page that holds the form to submit one of the discussions to be promoted to 
 
 
 # Data Model 
-
+![FinalDataModel IMG](/docs/imgs/FinalDataModel.png "Final Data Model")
 We have 6 models in our models.py file: UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice, Document. The UserAccount model identifies different users which contains a username, a first name, and a last name. The DiscussionPost contains information regarding a post, including the title, the author (a UserAccount object), the content of the post, and a reference to a comment section. The comment is tied to the discussion post, many comments can link to one discussion post and each content contains a user, and text. The SurveyPost model contains a title, a UserAccount, a question, and the options that can be voted for. The options are found in the Choice model and are a different data model where many different instances of Choice can link to one survey post. Each instance of a Choice contains the actual option and the number of votes that the option has received. Our 6th model document describes the details of the documents uploaded by the user. It contains the author field, uploaded_at field that describes the time it was uploaded, description field that explains the uploaded image and the document field. 
 
 
