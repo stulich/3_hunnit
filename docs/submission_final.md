@@ -70,7 +70,7 @@ We have 6 models in our models.py file: UserAccount, DiscussionPost, CommentSect
 |"imageposts/"                                    | This displays the list of images uploaded.                           |
 |r'^discussionposts/(?P<pk>[0-9A-Fa-f-]+)/update/'| This displays each discussion post form to edit the discussion post  |
 |                                                 |  that was selected. Users can only edit their posts.                 |
-
+|"discussionposts/"                               | This page displays the list of discussion posts.                     |
 
 # Authentication/Authorization 
 To check if users are authenticated we write the condition {% if user.is_authenticated %}. Doing this makes sure that the user is logged in. The line {% if user.username == object.disc_author.user_name  %} helps ensure that only the user can only edit the post they create. These lines of code are present in the template files createsurvey.html and discussiondetail.html. 
