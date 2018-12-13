@@ -16,11 +16,6 @@ Our web app is particularly innovative in the way it can collect relevant data a
 * Arjun Singh
 * Kyle Ewell
 
-
-# Video Link
-Video Link: 
-
-
 # Design Overview
 For this submission Django user accounts were created, allowing login/logout functionality simmilair to the examples done in class. The users were created in the init.py file. Since we already had a UserAccount model created which was linked to other datatypes we had to link the new users to the existing user accounts with a one to one mapping which included changing the model of userAccount to accept a user as a one to one field. 
 
@@ -53,12 +48,12 @@ Page that displays all personal contributions to the site.
 The page that holds the form to submit one of the discussions to be promoted to the front page
 
 
-# Data Model: (HELP)
-(A final up-to-date diagram of your data model including a brief description of each of the entities in your model and their relationships.)
+# Data Model 
+
+We have 6 models in our models.py file: UserAccount, DiscussionPost, CommentSection, SurveyPost, Choice, Document. The UserAccount model identifies different users which contains a username, a first name, and a last name. The DiscussionPost contains information regarding a post, including the title, the author (a UserAccount object), the content of the post, and a reference to a comment section. The comment is tied to the discussion post, many comments can link to one discussion post and each content contains a user, and text. The SurveyPost model contains a title, a UserAccount, a question, and the options that can be voted for. The options are found in the Choice model and are a different data model where many different instances of Choice can link to one survey post. Each instance of a Choice contains the actual option and the number of votes that the option has received. Our 6th model document describes the details of the documents uploaded by the user. It contains the author field, uploaded_at field that describes the time it was uploaded, description field that explains the uploaded image and the document field. 
 
 
 # URL Routes/Mappings 
-(A final up-to-date table of all the URL routes that your application supports and a short description of what those routes are used for. You should also indicate any authentication and permissions on those routes.)
 
 |  Urls    |     Description                                                                                             |
 |----------|:-----------------------------------------------------------------------------------------------------------:|
