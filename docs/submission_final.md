@@ -26,25 +26,25 @@ In terms of functionality, we decided that users will not be allowed to modify s
 
 # User Interface 
 
-![HomePage IMG](/imgs/homepage.png "HomePage")
+![HomePage IMG](/docs/imgs/homepage.png "HomePage")
 This is the main landing page when a user first logs in to the site, which will show some basic statistics about the website, and allow the user to access the content he/she desires.
 
-![Login IMG](docs/imgs/login.png "Login")
+![Login IMG](/docs/imgs/login.png "Login")
 This is what the user will see when they attempt to log in to the site.
 
-![Logout IMG](docs/imgs/logout.png "Logout")
+![Logout IMG](/docs/imgs/logout.png "Logout")
 This is what the user will see when they log out of the site.
 
-![discussionPage IMG](docs/imgs/discussionPage.png "Discussions")
+![discussionPage IMG](/docs/imgs/discussionPage.png "Discussions")
 This is the main discussions page that displays all the latest discussion posts. This particular UI is meant to filter by 'most recent' and all user posts would end up here, functionlaity will be added in future to be able to keep posts private or to specific users.
 
-![surveyPage IMG](docs/imgs/surveyPage.png "Surveys")
+![surveyPage IMG](/docs/imgs/surveyPage.png "Surveys")
 Similar to the discussion page above, mainly meant to just present the surveys created by all users on the site. Also allows users to vote live on page and see results. 
 
-![yourPosts IMG](docs/imgs/yourPosts.png "Your Posts")
+![yourPosts IMG](/docs/imgs/yourPosts.png "Your Posts")
 Page that displays all personal contributions to the site.
 
-![discussionForm IMG](docs/imgs/discussionForm.png "Discussion Form")
+![discussionForm IMG](/docs/imgs/discussionForm.png "Discussion Form")
 The page that holds the form to submit one of the discussions to be promoted to the front page
 
 
