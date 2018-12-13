@@ -57,7 +57,7 @@ The page that holds the form to submit one of the discussions to be promoted to 
 (A final up-to-date diagram of your data model including a brief description of each of the entities in your model and their relationships.)
 
 
-# URL Routes/Mappings (HELP)
+# URL Routes/Mappings 
 (A final up-to-date table of all the URL routes that your application supports and a short description of what those routes are used for. You should also indicate any authentication and permissions on those routes.)
 
 |  Urls    |     Description                                                                                             |
@@ -77,10 +77,10 @@ The page that holds the form to submit one of the discussions to be promoted to 
 |                                                 |  that was selected. Users can only edit their posts.                 |
     
 
-# Authentication/Authorization (HELP) 
+# Authentication/Authorization 
 To check if users are authenticated we write the condition {% if user.is_authenticated %}. Doing this makes sure that the user is logged in. The line {% if user.username == object.disc_author.user_name  %} helps ensure that only the user can only edit the post they create. These lines of code are present in the template files createsurvey.html and discussiondetail.html. 
 
-# Team Choice (HELP)
+# Team Choice 
 For our team choice component we decided to add functionality that would allow users to upload images and view images posted by others. For this team choice we added the Document model in models.py. This model consisted of a image field, a description, a time uploaded, and an author field. To allow images to be added we created a docUpload.html page which interacts with forms.py to update the Document data model. This included additions to forms.py, views.py, and urls.py. We created a list view for the images that shows the images, the descriptions and the authors. This is shown in imageposts.html which also required additions to urls.py. Finally we added to the base.html to make these upload pages and viewing pages for the images easily accessible. 
 
 # Conclusion 
